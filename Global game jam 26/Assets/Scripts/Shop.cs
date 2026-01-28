@@ -33,4 +33,31 @@ public class Shop : MonoBehaviour
         name3.text = randomMask3.maskName;
         description3.text = randomMask3.description;
     }
+
+
+    private void DisableButtons()
+    {
+        option1.GetComponent<Button>().interactable = false;
+        option2.GetComponent<Button>().interactable = false;
+        option3.GetComponent<Button>().interactable = false;
+    }
+    public void ButtonClicked(int i)
+    {
+        DisableButtons();
+    }
+
+
+    public void Option1Click()
+    {
+        ButtonClicked(0);
+    }
+    public void Option2Click()
+    {
+        ButtonClicked(1);
+    }
+    public void Option3Click()
+    {
+        ButtonClicked(2);
+    }
+
 }
