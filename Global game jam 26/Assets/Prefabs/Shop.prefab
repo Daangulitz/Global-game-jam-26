@@ -1234,6 +1234,8 @@ MonoBehaviour:
   description3: {fileID: 3935804663022766494}
   maskPrefabs:
   - {fileID: 11400000, guid: fd3406367286a5b479d060031e1380aa, type: 2}
+  - {fileID: 11400000, guid: 52afe7a57f2ef2245b4427e9e4a57d98, type: 2}
+  - {fileID: 11400000, guid: 3fa1446fca1800743a24bf0a080d69ee, type: 2}
 --- !u!1 &7255131524198806204
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 121c9c2be184adc4b8db6c2b01d5e500, type: 3}
-  m_Name: Comedy Mask
+  m_Name: Tragedy Mask
   m_EditorClassIdentifier: Assembly-CSharp::Mask
   rarity: 0
-  maskName: Comedy Mask
-  description: Reduces enemy notice range
-  sprite: {fileID: 21300000, guid: e2f7738ce24f52747927e639b0a3b788, type: 3}
-  id: 1
+  maskName: Tragedy Mask
+  description: Slows enemies down
+  sprite: {fileID: 21300000, guid: 796f9191061d531458145a37e51435e8, type: 3}
+  id: 2
