@@ -18,4 +18,5 @@ MonoBehaviour:
     to create a random mask when exiting cheese world room. Disables when not in
     cheese world.
   sprite: {fileID: 21300000, guid: 632490af352c387479f96900cf2c3ced, type: 3}
+  material: {fileID: 2100000, guid: 4ae8c9e8296ef924baee995479ba9323, type: 2}
   id: 4
