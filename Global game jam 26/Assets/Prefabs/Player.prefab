@@ -419,9 +419,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 722fe6adc53f24d47988200cbcf84585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  constantForwardSpeed: 30
-  maxSpeed: 10
-  jumpForce: 10
+  constantForwardSpeed: 80
+  maxSpeed: 15
+  jumpForce: 50
   groundCheck: {fileID: 4513839971316223243}
   groundRadius: 0.2
   groundLayer:
@@ -492,9 +492,9 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 2
+  m_LinearDamping: 4
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 6200000, guid: 84e02fe48f9035244bd5dba390551c3e, type: 2}
   m_IncludeLayers:
     serializedVersion: 2

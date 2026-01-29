@@ -80,6 +80,12 @@ public class PlayerController : MonoBehaviour
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayer);
         if (rb.linearVelocity.magnitude > maxSpeed)
             rb.linearVelocity = Vector3.ClampMagnitude(rb.linearVelocity, maxSpeed);
+
+
+        if (isGrounded)
+        {
+            _animator.SetBool("Jump", false);
+        }
     }
 
     private void FixedUpdate()
@@ -88,7 +94,7 @@ public class PlayerController : MonoBehaviour
         horizontalVelocity = (steerInput < 0) ? -constantForwardSpeed : constantForwardSpeed;
         if (steerInput != 0)
         {
-            _animator.SetFloat("Speed", Mathf.Abs(steerInput));
+            _animator.SetFloat("Speed", 1f);
             rb.linearVelocity = new Vector2(rb.linearVelocityX, rb.linearVelocity.y);
             rb.AddForce(Vector3.right * steerInput * constantForwardSpeed);
         }
@@ -98,8 +104,9 @@ public class PlayerController : MonoBehaviour
     {
         if (isGrounded)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-            _animator.SetTrigger("Jump");
+            rb.AddForce(Vector3.up * jumpForce);
+            //rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            _animator.SetBool("Jump", true);
         }
     }
 
