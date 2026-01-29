@@ -46,6 +46,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float BlueSpiritMaskJumpUpgradeX;
     [SerializeField] private float TimeUntilRacingMaskBreaks;
     [SerializeField] private float UpgradeAmountRacingMaskSpeedX;
+    [SerializeField] private float JumpHighedForCheeseX;
+    [SerializeField] private float SpeedIncreaseForCheeseX;
+    
 
     private Rigidbody2D rb;
     private float steerInput;
@@ -58,11 +61,14 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private GameManager gm;
     private BoxCollider2D attackHitbox;
+    private GameSceneManager gsm;
 
     private int jumpsRemaining;
     private bool BlueSpiritMaskActive;
     private bool RacingMaskActive;
     private bool AttackActive;
+    private bool CheeseActivation;
+    
 
     private void OnEnable()
     {
@@ -94,6 +100,7 @@ public class PlayerController : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
         attackHitbox = GetComponentInChildren<BoxCollider2D>();
         gm = FindObjectOfType<GameManager>();
+        gsm = FindObjectOfType<GameSceneManager>();
     }
 
     private void Update()
@@ -132,6 +139,16 @@ public class PlayerController : MonoBehaviour
         {
             constantForwardSpeed = constantForwardSpeed * UpgradeAmountRacingMaskSpeedX;
             RacingMaskActive = true;
+        }
+
+        if (gm.masks.Any(m => m.id == 5) && gsm.currentWorld == 2)
+        {
+            if (!CheeseActivation)
+            {
+                constantForwardSpeed = constantForwardSpeed * SpeedIncreaseForCheeseX;
+                jumpForce = jumpForce * JumpHighedForCheeseX;
+                CheeseActivation = true;
+            }
         }
 
         if (steerInput == 0)

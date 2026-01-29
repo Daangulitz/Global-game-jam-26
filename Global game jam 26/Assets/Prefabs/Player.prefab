@@ -524,8 +524,10 @@ MonoBehaviour:
   jumpAction: {fileID: 0}
   attackAction: {fileID: 0}
   BlueSpiritMaskJumpUpgradeX: 1.2
-  TimeUntilRacingMaskBreaks: 0
-  UpgradeAmountRacingMaskSpeedX: 0
+  TimeUntilRacingMaskBreaks: 2
+  UpgradeAmountRacingMaskSpeedX: 1.4
+  JumpHighedForCheeseX: 1.2
+  SpeedIncreaseForCheeseX: 1.4
   isGrounded: 0
   isFacingRight: 0
 --- !u!114 &8170129529710086964
