@@ -17,6 +17,8 @@ public class Shop : MonoBehaviour
     public List<Mask> uncommonMaskPrefabs = new();
     public List<Mask> specialMaskPrefabs = new();
 
+    public List<Mask> masksThisShop = new();
+
     private GameManager gm;
     
     private void Start()
@@ -25,9 +27,20 @@ public class Shop : MonoBehaviour
         LoadNewShop();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            LoadNewShop();
+        }
+    }
 
     public void LoadNewShop()
     {
+        visual1.material = null;
+        visual2.material = null;
+        visual3.material = null;
+
         Mask randomMask1 = GetRandomMask();
 
         visual1.sprite = randomMask1.sprite;
@@ -92,6 +105,17 @@ public class Shop : MonoBehaviour
             rarity3.color = Color.lightGray;
         }
         choice3 = randomMask3;
+
+        foreach (Mask mask in masksThisShop)
+        {
+            if (mask.rarity == Rarity.Special)
+                specialMaskPrefabs.Add(mask);
+            else if (mask.rarity == Rarity.Uncommon)
+                uncommonMaskPrefabs.Add(mask);
+            else
+                commonMaskPrefabs.Add(mask);
+          
+        }
     }
 
 
@@ -102,18 +126,21 @@ public class Shop : MonoBehaviour
         {
             Mask specialMask = specialMaskPrefabs[Random.Range(0, specialMaskPrefabs.Count)];
             specialMaskPrefabs.Remove(specialMask);
+            masksThisShop.Add(specialMask);
             return specialMask;
         }
         else if (rng > 500 && uncommonMaskPrefabs.Count > 0)
         {
             Mask uncommonMask = uncommonMaskPrefabs[Random.Range(0, uncommonMaskPrefabs.Count)];
             uncommonMaskPrefabs.Remove(uncommonMask);
+            masksThisShop.Add(uncommonMask);
             return uncommonMask;
         }
         else
         {
             Mask commonMask = commonMaskPrefabs[Random.Range(0, commonMaskPrefabs.Count)];
             commonMaskPrefabs.Remove(commonMask);
+            masksThisShop.Add(commonMask);
             return commonMask;
         }
     }
