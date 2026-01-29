@@ -174,6 +174,6 @@ public class Shop : MonoBehaviour
 
     private void NextScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
     }
 }
