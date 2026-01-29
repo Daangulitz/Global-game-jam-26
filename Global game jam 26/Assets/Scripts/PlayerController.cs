@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Movement Settings")]
     public float constantForwardSpeed = 5f;
+    public float maxSpeed;
     public float jumpForce = 12f;
 
     [Header("Detection")]
@@ -77,6 +78,8 @@ public class PlayerController : MonoBehaviour
     {
         steerInput = moveAction.action.ReadValue<Vector2>().x;
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayer);
+        if (rb.linearVelocity.magnitude > maxSpeed)
+            rb.linearVelocity = Vector3.ClampMagnitude(rb.linearVelocity, maxSpeed);
     }
 
     private void FixedUpdate()

@@ -8,9 +8,9 @@ public class EnemyBase : MonoBehaviour
     public Transform player;
     public float detectionRange = 10f;
     public LayerMask obstacleLayer;
-
+    
     private PlayerHealth ph;
-
+    private GameManager gm;
     private IAstarAI ai;
 
     void Start()
@@ -18,6 +18,7 @@ public class EnemyBase : MonoBehaviour
         ai = GetComponent<IAstarAI>();
         player = GameObject.FindWithTag("Player").transform;
         ph = FindObjectOfType<PlayerHealth>();
+        gm = FindObjectOfType<GameManager>();
     }
 
     void FixedUpdate()
