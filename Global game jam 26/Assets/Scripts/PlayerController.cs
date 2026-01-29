@@ -151,19 +151,20 @@ public class PlayerController : MonoBehaviour
 
         if (AttackActive)
         {
-            attackHitbox.enabled = true;
+            //attackHitbox.enabled = true;
             if (isFacingRight)
             {
-                attackHitbox.offset = new Vector2(10, 0);
+                attackHitbox.gameObject.transform.localPosition = new Vector3(10,0,0);
             }
             else
             {
-                attackHitbox.offset = new Vector2(-10, 0);
+                attackHitbox.gameObject.transform.localPosition = new Vector3(-10, 0, 0);
             }
         }
         else
         {
-            attackHitbox.enabled = false;
+           // attackHitbox.enabled = false;
+            attackHitbox.gameObject.transform.localPosition = new Vector3(0, 0, 0);
         }
     }
 
@@ -210,7 +211,8 @@ public class PlayerController : MonoBehaviour
     private void OnAttack(InputAction.CallbackContext context)
     {
         //start attack animation
-        StartCoroutine(Slash());
+        if (!AttackActive)
+            StartCoroutine(Slash());
     }
 
 
