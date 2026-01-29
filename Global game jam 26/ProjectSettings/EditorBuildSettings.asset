@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Fien.unity
     guid: 3abf19995b628dc478e5d446ea2ca77e
   - enabled: 1
-    path: Assets/Scenes/Daan.unity
+    path: Assets/Scenes/World1_Level2.unity
     guid: 433c86802460be041bcbbd7a88b5428f
   - enabled: 1
     path: Assets/Scenes/Levels/Test/1.unity
