@@ -81,7 +81,7 @@ public class Shop : MonoBehaviour
         }
         else
         {
-            rarity3.color = Color.grey;
+            rarity3.color = Color.lightGray;
         }
         choice3 = randomMask3;
         maskPrefabs.Remove(randomMask3);
