@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
     private float horizontalVelocity;
 
     private Animator _animator;
+    private SpriteRenderer _spriteRenderer;
     
 
     private void OnEnable()
@@ -72,6 +73,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         _animator = GetComponent<Animator>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -95,6 +97,15 @@ public class PlayerController : MonoBehaviour
         else
         {
             _animator.SetFloat("Speed", 0f);
+        }
+
+        if (steerInput >= 0)
+        {
+            _spriteRenderer.flipX = false;
+        }
+        else if (steerInput < 0)
+        {
+            _spriteRenderer.flipX = true;
         }
     }
 
