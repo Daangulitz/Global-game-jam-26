@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -42,12 +43,15 @@ public class PlayerController : MonoBehaviour
 
     [Header("MaskUpgradeSettings")] 
     [SerializeField] private float BlueSpiritMaskJumpUpgradeX;
+    [SerializeField] private float TimeUntilRacingMaskBreaks;
+    [SerializeField] private float UpgradeAmountRacingMaskSpeedX;
 
     private Rigidbody2D rb;
     private float steerInput;
     public bool isGrounded;
     public bool isFacingRight;
     private float horizontalVelocity;
+    private float timeUntilRacingMaskBreaks;
 
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
@@ -55,6 +59,7 @@ public class PlayerController : MonoBehaviour
 
     private int jumpsRemaining;
     private bool BlueSpiritMaskActive;
+    private bool RacingMaskActive;
 
     private void OnEnable()
     {
@@ -97,7 +102,6 @@ public class PlayerController : MonoBehaviour
         {
             int maxJumps = baseJumpCount;
             
-            // Check for Blue Spirit Mask (ID 1) to add a jump
             if (gm.masks.Any(m => m.id == 9))
             {
                 maxJumps += 1;
@@ -114,11 +118,29 @@ public class PlayerController : MonoBehaviour
         if (rb.linearVelocity.magnitude > maxSpeed)
             rb.linearVelocity = Vector3.ClampMagnitude(rb.linearVelocity, maxSpeed);
         
-        // Keep your original jump force multiplier logic
         if (gm.masks.Any(m => m.id == 1) && !BlueSpiritMaskActive)
         {
             jumpForce = jumpForce * BlueSpiritMaskJumpUpgradeX;
             BlueSpiritMaskActive = true;
+        }
+
+        if (gm.masks.Any(m => m.id == 3) && !RacingMaskActive)
+        {
+            constantForwardSpeed = constantForwardSpeed * UpgradeAmountRacingMaskSpeedX;
+            RacingMaskActive = true;
+        }
+
+        if (steerInput == 0)
+        {
+            timeUntilRacingMaskBreaks =+ Time.deltaTime;
+            if (timeUntilRacingMaskBreaks == TimeUntilRacingMaskBreaks)
+            {
+                RemoveSpecificMask(3);
+                constantForwardSpeed = constantForwardSpeed / UpgradeAmountRacingMaskSpeedX;
+            }
+        } else if (steerInput != 0)
+        {
+            timeUntilRacingMaskBreaks = 0f;
         }
     }
 
@@ -174,6 +196,26 @@ public class PlayerController : MonoBehaviour
         {
             Gizmos.color = isGrounded ? Color.green : Color.red;
             Gizmos.DrawWireSphere(groundCheck.position, groundRadius);
+        }
+    }
+    
+    private void RemoveSpecificMask(int idToRemove)
+    {
+        // Use a list to find the item
+        List<Mask> temp = gm.masks.ToList();
+        // Remove only the first instance of ID 0 found
+        Mask toRemove = temp.FirstOrDefault(m => m.id == idToRemove);
+        
+        if (toRemove != null)
+        {
+            temp.Remove(toRemove);
+            gm.masks.Clear();
+            // Re-stack items in correct order
+            temp.Reverse();
+            foreach (var m in temp)
+            {
+                gm.masks.Push(m);
+            }
         }
     }
 }
