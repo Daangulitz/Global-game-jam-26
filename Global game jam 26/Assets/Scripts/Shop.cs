@@ -5,16 +5,20 @@ using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
-    [SerializeField] GameObject option1, option2, option3;
+    [SerializeField] Button option1, option2, option3;
     [SerializeField] TextMeshProUGUI name1, name2, name3;
     [SerializeField] TextMeshProUGUI description1, description2, description3;
     [SerializeField] TextMeshProUGUI rarity1, rarity2, rarity3;
+    
 
     public Mask choice1, choice2, choice3;
     public List<Mask> maskPrefabs = new();
 
+    private GameManager gm;
+    
     private void Start()
     {
+        gm = FindObjectOfType<GameManager>();
         LoadNewShop();
     }
 
@@ -82,21 +86,24 @@ public class Shop : MonoBehaviour
         choice3 = randomMask3;
         maskPrefabs.Remove(randomMask3);
     }
-
-
-    private void DisableButtons()
-    {
-        option1.GetComponent<Button>().interactable = false;
-        option2.GetComponent<Button>().interactable = false;
-        option3.GetComponent<Button>().interactable = false;
-    }
+    
     public void ButtonClicked(int i)
     {
-        DisableButtons();
-        //maybe play cool animation here
-        
-
-        //set gamemanager with i being the choice then load new scene
+        if (i == 0)
+        {
+            gm.AddMask(choice1);
+            Debug.Log("Mask added: " + choice1.maskName);
+        }
+        else if (i == 1)
+        {
+            gm.AddMask(choice2);
+            Debug.Log("Mask added: " + choice2.maskName);
+        }
+        else
+        {
+            gm.AddMask(choice3);
+            Debug.Log("Mask added: " + choice3.maskName);
+        }
     }
 
 

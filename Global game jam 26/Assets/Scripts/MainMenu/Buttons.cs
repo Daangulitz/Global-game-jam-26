@@ -12,7 +12,7 @@ public class Buttons : MonoBehaviour
     
     public void StartGame()
     {
-        SceneManager.LoadScene("Daan");
+        SceneManager.LoadScene("Shop");
     }
 
     public void Settings()

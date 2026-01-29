@@ -377,8 +377,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2e9ce841cf64a34faa87dc5a39574b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Buttons
-  trymask: {fileID: 11400000, guid: fd3406367286a5b479d060031e1380aa, type: 2}
-  mask: {fileID: 11400000, guid: 720f398b8eb19aa46b64b79b6aa88e4e, type: 2}
 --- !u!1 &364014112
 GameObject:
   m_ObjectHideFlags: 0
