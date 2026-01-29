@@ -17,7 +17,8 @@ public class EnemyBase : MonoBehaviour
     private IAstarAI ai;
     
     private bool MaxSpeedIsSet = false;
-    private bool MaxRangeIsSet = false;
+    private bool MaxRangeIsSetForComedy = false;
+    private bool MaxRangeIsSetForBlueSpirit = false;
 
     void Start()
     {
@@ -45,16 +46,22 @@ public class EnemyBase : MonoBehaviour
             ai.isStopped = true;
         }
 
-        if (!MaxSpeedIsSet && gm.masks.Any(m => m.id == 2))
+        if (!MaxSpeedIsSet && gm.masks.Any(m => m.id == 8))
         {
             ai.maxSpeed = ai.maxSpeed / MaxSpeedDelenDoor;
             MaxSpeedIsSet = true;
         }
 
-        if (!MaxRangeIsSet && gm.masks.Any(m => m.id == 1))
+        if (!MaxRangeIsSetForComedy && gm.masks.Any(m => m.id == 2))
         {
             detectionRange = detectionRange / DetectionRangeDelenDoor;
-            MaxRangeIsSet = true;
+            MaxRangeIsSetForComedy = true;
+        }
+
+        if (!MaxRangeIsSetForBlueSpirit && gm.masks.Any(m => m.id == 1))
+        {
+            detectionRange = detectionRange / DetectionRangeDelenDoor;
+            MaxRangeIsSetForBlueSpirit = true;
         }
     }
 

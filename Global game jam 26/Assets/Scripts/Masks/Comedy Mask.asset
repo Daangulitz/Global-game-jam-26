@@ -17,4 +17,4 @@ MonoBehaviour:
   description: Reduces enemy notice range
   sprite: {fileID: 21300000, guid: e2f7738ce24f52747927e639b0a3b788, type: 3}
   material: {fileID: 2100000, guid: 7bd2064cf2c8c904ba9f4557ce85d953, type: 2}
-  id: 1
+  id: 2

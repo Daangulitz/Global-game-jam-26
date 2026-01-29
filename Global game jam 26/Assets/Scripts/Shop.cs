@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,7 +11,6 @@ public class Shop : MonoBehaviour
     [SerializeField] TextMeshProUGUI name1, name2, name3;
     [SerializeField] TextMeshProUGUI description1, description2, description3;
     [SerializeField] TextMeshProUGUI rarity1, rarity2, rarity3;
-    
 
     public Mask choice1, choice2, choice3;
     public List<Mask> commonMaskPrefabs = new();
@@ -24,6 +24,11 @@ public class Shop : MonoBehaviour
     private void Start()
     {
         gm = FindObjectOfType<GameManager>();
+        
+        visual1.gameObject.SetActive(true);
+        visual2.gameObject.SetActive(true);
+        visual3.gameObject.SetActive(true);
+        
         LoadNewShop();
     }
 
@@ -37,136 +42,138 @@ public class Shop : MonoBehaviour
 
     public void LoadNewShop()
     {
+        // Fix: Put masks back and CLEAR before loading new ones
+        foreach (Mask mask in masksThisShop)
+        {
+            if (mask.rarity == Rarity.Special) specialMaskPrefabs.Add(mask);
+            else if (mask.rarity == Rarity.Uncommon) uncommonMaskPrefabs.Add(mask);
+            else commonMaskPrefabs.Add(mask);
+        }
+        masksThisShop.Clear();
+
         visual1.material = null;
         visual2.material = null;
         visual3.material = null;
 
-        Mask randomMask1 = GetRandomMask();
+        choice1 = GetRandomMask();
+        SetupDisplay(choice1, visual1, name1, description1, rarity1);
 
-        visual1.sprite = randomMask1.sprite;
+        choice2 = GetRandomMask();
+        SetupDisplay(choice2, visual2, name2, description2, rarity2);
 
-        name1.text = randomMask1.maskName;
-        description1.text = randomMask1.description;
-        rarity1.text = randomMask1.rarity.ToString();
-
-        if (randomMask1.rarity == Rarity.Uncommon)
-        {
-            rarity1.color = Color.green;
-        }
-        else if (randomMask1.rarity == Rarity.Special)
-        {
-            rarity1.color = Color.purple;
-            visual1.material = randomMask1.material;
-        }
-        else
-        {
-            rarity1.color = Color.lightGray;
-        }
-        choice1 = randomMask1;
-
-        Mask randomMask2 = GetRandomMask();
-        visual2.sprite = randomMask2.sprite;
-
-        name2.text = randomMask2.maskName;
-        description2.text = randomMask2.description;
-        rarity2.text = randomMask2.rarity.ToString();
-        if (randomMask2.rarity == Rarity.Uncommon)
-        {
-            rarity2.color = Color.green;
-        }
-        else if (randomMask2.rarity == Rarity.Special)
-        {
-            rarity2.color = Color.purple;
-            visual2.material = randomMask2.material;
-        }
-        else
-        {
-            rarity2.color = Color.lightGray;
-        }
-        choice2 = randomMask2;
-
-        Mask randomMask3 = GetRandomMask();
-        visual3.sprite = randomMask3.sprite;
-
-        name3.text = randomMask3.maskName;
-        description3.text = randomMask3.description;
-        rarity3.text = randomMask3.rarity.ToString();
-        if (randomMask3.rarity == Rarity.Uncommon)
-        {
-            rarity3.color = Color.green;
-        }
-        else if (randomMask3.rarity == Rarity.Special)
-        {
-            rarity3.color = Color.purple;
-            visual3.material = randomMask3.material;
-        }
-        else
-        {
-            rarity3.color = Color.lightGray;
-        }
-        choice3 = randomMask3;
-
-        foreach (Mask mask in masksThisShop)
-        {
-            if (mask.rarity == Rarity.Special)
-                specialMaskPrefabs.Add(mask);
-            else if (mask.rarity == Rarity.Uncommon)
-                uncommonMaskPrefabs.Add(mask);
-            else
-                commonMaskPrefabs.Add(mask);
-          
-        }
+        choice3 = GetRandomMask();
+        SetupDisplay(choice3, visual3, name3, description3, rarity3);
     }
 
+    private void SetupDisplay(Mask m, Image img, TextMeshProUGUI n, TextMeshProUGUI d, TextMeshProUGUI r)
+    {
+        if (m == null) return;
+        img.sprite = m.sprite;
+        n.text = m.maskName;
+        d.text = m.description;
+        r.text = m.rarity.ToString();
+
+        if (m.rarity == Rarity.Uncommon) r.color = Color.green;
+        else if (m.rarity == Rarity.Special)
+        {
+            r.color = Color.purple;
+            img.material = m.material;
+        }
+        else r.color = Color.lightGray;
+    }
 
     private Mask GetRandomMask()
     {
         int rng = Random.Range(0, 1000);
+        Mask selected = null;
+
         if (rng > 800 && specialMaskPrefabs.Count > 0)
         {
-            Mask specialMask = specialMaskPrefabs[Random.Range(0, specialMaskPrefabs.Count)];
-            specialMaskPrefabs.Remove(specialMask);
-            masksThisShop.Add(specialMask);
-            return specialMask;
+            selected = specialMaskPrefabs[Random.Range(0, specialMaskPrefabs.Count)];
+            specialMaskPrefabs.Remove(selected);
         }
         else if (rng > 500 && uncommonMaskPrefabs.Count > 0)
         {
-            Mask uncommonMask = uncommonMaskPrefabs[Random.Range(0, uncommonMaskPrefabs.Count)];
-            uncommonMaskPrefabs.Remove(uncommonMask);
-            masksThisShop.Add(uncommonMask);
-            return uncommonMask;
+            selected = uncommonMaskPrefabs[Random.Range(0, uncommonMaskPrefabs.Count)];
+            uncommonMaskPrefabs.Remove(selected);
         }
-        else
+        else if (commonMaskPrefabs.Count > 0)
         {
-            Mask commonMask = commonMaskPrefabs[Random.Range(0, commonMaskPrefabs.Count)];
-            commonMaskPrefabs.Remove(commonMask);
-            masksThisShop.Add(commonMask);
-            return commonMask;
+            selected = commonMaskPrefabs[Random.Range(0, commonMaskPrefabs.Count)];
+            commonMaskPrefabs.Remove(selected);
         }
+
+        if (selected != null) masksThisShop.Add(selected);
+        return selected;
     }
 
     public void Option1Click()
     {
-        Debug.LogError("Mask added: " + choice1.maskName);
-        gm.AddMask(choice1);
-        NextScene();
+        if (gm.masks.Any(m => m.id == 0))
+        {
+            RemoveSpecificMask(0);
+            gm.AddMask(choice1);
+            visual1.gameObject.SetActive(false); 
+        }
+        else 
+        {
+            gm.AddMask(choice1);
+            NextScene();
+        }
     }
+
     public void Option2Click()
-    { 
-        gm.AddMask(choice2);
-        Debug.LogError("Mask added: " + choice2.maskName);
-        NextScene();
+    {
+        if (gm.masks.Any(m => m.id == 0))
+        {
+            RemoveSpecificMask(0);
+            gm.AddMask(choice2);
+            visual2.gameObject.SetActive(false);
+        }
+        else
+        {
+            gm.AddMask(choice2);
+            NextScene();
+        }
     }
+
     public void Option3Click()
     {
-        gm.AddMask(choice3);
-        Debug.LogError("Mask added: " + choice3.maskName);
-        NextScene();
+        if (gm.masks.Any(m => m.id == 0))
+        {
+            RemoveSpecificMask(0);
+            gm.AddMask(choice3);
+            visual3.gameObject.SetActive(false);
+        }
+        else
+        {
+            gm.AddMask(choice3);
+            NextScene();
+        }
+    }
+
+    private void RemoveSpecificMask(int idToRemove)
+    {
+        // Use a list to find the item
+        List<Mask> temp = gm.masks.ToList();
+        // Remove only the first instance of ID 0 found
+        Mask toRemove = temp.FirstOrDefault(m => m.id == idToRemove);
+        
+        if (toRemove != null)
+        {
+            temp.Remove(toRemove);
+            gm.masks.Clear();
+            // Re-stack items in correct order
+            temp.Reverse();
+            foreach (var m in temp)
+            {
+                gm.masks.Push(m);
+            }
+        }
     }
 
     private void NextScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
     }
-
 }

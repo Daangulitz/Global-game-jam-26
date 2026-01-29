@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,25 +13,22 @@ public class PlayerController : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
-            // If a player already exists, kill this new one immediately
             Destroy(gameObject);
             return;
         }
 
         Instance = this;
-        
-        // This command tells Unity NOT to destroy this object when loading a new scene
         DontDestroyOnLoad(gameObject);
 
         rb = GetComponent<Rigidbody2D>();
         rb.freezeRotation = true; 
     }
-    // -------------------------------
 
     [Header("Movement Settings")]
     public float constantForwardSpeed = 5f;
     public float maxSpeed;
     public float jumpForce = 12f;
+    public int baseJumpCount = 1;
 
     [Header("Detection")]
     public Transform groundCheck;
@@ -41,6 +39,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private InputActionReference moveAction;
     [SerializeField] private InputActionReference jumpAction;
 
+    [Header("MaskUpgradeSettings")] 
+    [SerializeField] private float BlueSpiritMaskJumpUpgradeX;
+
     private Rigidbody2D rb;
     private float steerInput;
     public bool isGrounded;
@@ -48,11 +49,13 @@ public class PlayerController : MonoBehaviour
 
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
-    
+    private GameManager gm;
+
+    private int jumpsRemaining;
+    private bool BlueSpiritMaskActive;
 
     private void OnEnable()
     {
-        // Make sure actions are enabled
         if (moveAction != null) moveAction.action.Enable();
         if (jumpAction != null) 
         {
@@ -63,7 +66,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnDisable()
     {
-        // Unsubscribe to avoid memory leaks
         if (jumpAction != null)
         {
             jumpAction.action.performed -= OnJump;
@@ -74,24 +76,50 @@ public class PlayerController : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        gm = FindObjectOfType<GameManager>();
     }
 
     private void Update()
     {
         steerInput = moveAction.action.ReadValue<Vector2>().x;
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayer);
+        
+        // Reset jumps and handle mask logic when grounded
+        if (isGrounded && rb.linearVelocity.y <= 0.1f)
+        {
+            int maxJumps = baseJumpCount;
+            
+            // Check for Blue Spirit Mask (ID 1) to add a jump
+            if (gm.masks.Any(m => m.id == 9))
+            {
+                maxJumps += 1;
+            }
+
+            jumpsRemaining = maxJumps;
+            _animator.SetBool("isGrounded", true);
+        }
+        else
+        {
+            _animator.SetBool("isGrounded", false);
+        }
+
         if (rb.linearVelocity.magnitude > maxSpeed)
             rb.linearVelocity = Vector3.ClampMagnitude(rb.linearVelocity, maxSpeed);
+        
+        // Keep your original jump force multiplier logic
+        if (gm.masks.Any(m => m.id == 1) && !BlueSpiritMaskActive)
+        {
+            jumpForce = jumpForce * BlueSpiritMaskJumpUpgradeX;
+            BlueSpiritMaskActive = true;
+        }
     }
 
     private void FixedUpdate()
     {
-        // Always moving logic
         horizontalVelocity = (steerInput < 0) ? -constantForwardSpeed : constantForwardSpeed;
         if (steerInput != 0)
         {
             _animator.SetFloat("Speed", 1f);
-            rb.linearVelocity = new Vector2(rb.linearVelocityX, rb.linearVelocity.y);
             rb.AddForce(Vector3.right * steerInput * constantForwardSpeed);
         }
         else
@@ -111,16 +139,16 @@ public class PlayerController : MonoBehaviour
 
     private void OnJump(InputAction.CallbackContext context)
     {
-        if (isGrounded)
+        if (jumpsRemaining > 0)
         {
+            // Reset Y velocity for consistent multi-jump height
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0);
+            
             rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
-            //rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            
+            jumpsRemaining--;
+            
             _animator.SetTrigger("Jump");
-            _animator.SetBool("isGrounded", true);
-        }
-        else
-        {
-            _animator.SetBool("isGrounded", false);
         }
     }
 

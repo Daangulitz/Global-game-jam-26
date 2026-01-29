@@ -429,6 +429,7 @@ MonoBehaviour:
     m_Bits: 64
   moveAction: {fileID: 0}
   jumpAction: {fileID: 0}
+  BlueSpiritMaskJumpUpgradeX: 1.2
   isGrounded: 0
 --- !u!114 &8170129529710086964
 MonoBehaviour:
