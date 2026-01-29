@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEngine;
 using Pathfinding; // Required for A* Pathfinding Project
 
@@ -8,10 +9,14 @@ public class EnemyBase : MonoBehaviour
     public Transform player;
     public float detectionRange = 10f;
     public LayerMask obstacleLayer;
+    [SerializeField] private float MaxSpeedDelenDoor;
     
     private PlayerHealth ph;
     private GameManager gm;
     private IAstarAI ai;
+    
+    private bool MaxSpeedIsSet = false;
+    private bool MaxRangeIsSet = false;
 
     void Start()
     {
@@ -37,6 +42,17 @@ public class EnemyBase : MonoBehaviour
         else
         {
             ai.isStopped = true;
+        }
+
+        if (!MaxSpeedIsSet && gm.masks.Any(m => m.id == 2))
+        {
+            ai.maxSpeed = ai.maxSpeed / MaxSpeedDelenDoor;
+            MaxSpeedIsSet = true;
+        }
+
+        if (!MaxRangeIsSet && gm.masks.Any(m => m.id == 1))
+        {
+            
         }
     }
 
