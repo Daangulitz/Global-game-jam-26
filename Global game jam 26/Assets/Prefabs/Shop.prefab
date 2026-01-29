@@ -872,6 +872,7 @@ GameObject:
   - component: {fileID: 5410604480625899595}
   - component: {fileID: 714976240221274918}
   - component: {fileID: 5509308717156881267}
+  - component: {fileID: 7124131159460646704}
   m_Layer: 0
   m_Name: Rariety
   m_TagString: Untagged
@@ -998,6 +999,21 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7124131159460646704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5746635618557536819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45b26ee0526480d49b1057f350fa4f04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UICard
+  savedIndex: 9
+  orbitSpeed: 0.4
+  rotationAmount: 40
 --- !u!1 &6056571331122155569
 GameObject:
   m_ObjectHideFlags: 0
@@ -1150,6 +1166,7 @@ GameObject:
   - component: {fileID: 6731392515793418177}
   - component: {fileID: 6628124512769101971}
   - component: {fileID: 1037395298635831157}
+  - component: {fileID: 3050528670038951477}
   m_Layer: 0
   m_Name: Rariety
   m_TagString: Untagged
@@ -1276,6 +1293,21 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3050528670038951477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6720701195755548764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45b26ee0526480d49b1057f350fa4f04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UICard
+  savedIndex: 3
+  orbitSpeed: 0.4
+  rotationAmount: 40
 --- !u!1 &6966446095140344646
 GameObject:
   m_ObjectHideFlags: 0
@@ -1812,6 +1844,7 @@ GameObject:
   - component: {fileID: 8430344629687473746}
   - component: {fileID: 8520121769763402151}
   - component: {fileID: 3017831707233171674}
+  - component: {fileID: 3628072260122939638}
   m_Layer: 0
   m_Name: Rariety
   m_TagString: Untagged
@@ -1938,3 +1971,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3628072260122939638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8726469714898485546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45b26ee0526480d49b1057f350fa4f04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UICard
+  savedIndex: 5
+  orbitSpeed: 0.4
+  rotationAmount: 40
