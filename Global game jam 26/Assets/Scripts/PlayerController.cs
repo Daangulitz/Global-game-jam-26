@@ -98,6 +98,10 @@ public class PlayerController : MonoBehaviour
             rb.linearVelocity = new Vector2(rb.linearVelocityX, rb.linearVelocity.y);
             rb.AddForce(Vector3.right * steerInput * constantForwardSpeed);
         }
+        else
+        {
+            _animator.SetFloat("Speed", 0f);
+        }
     }
 
     private void OnJump(InputAction.CallbackContext context)
