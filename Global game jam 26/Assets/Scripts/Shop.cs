@@ -20,10 +20,12 @@ public class Shop : MonoBehaviour
     public List<Mask> masksThisShop = new();
 
     private GameManager gm;
+    private GameSceneManager gsm;
     
     private void Start()
     {
         gm = FindObjectOfType<GameManager>();
+        gsm = FindObjectOfType<GameSceneManager>();
         
         visual1.gameObject.SetActive(true);
         visual2.gameObject.SetActive(true);
