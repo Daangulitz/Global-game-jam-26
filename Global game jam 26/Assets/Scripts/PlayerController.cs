@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -56,10 +57,12 @@ public class PlayerController : MonoBehaviour
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
     private GameManager gm;
+    private BoxCollider2D attackHitbox;
 
     private int jumpsRemaining;
     private bool BlueSpiritMaskActive;
     private bool RacingMaskActive;
+    private bool AttackActive;
 
     private void OnEnable()
     {
@@ -89,6 +92,7 @@ public class PlayerController : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        attackHitbox = GetComponentInChildren<BoxCollider2D>();
         gm = FindObjectOfType<GameManager>();
     }
 
@@ -142,6 +146,25 @@ public class PlayerController : MonoBehaviour
         {
             timeUntilRacingMaskBreaks = 0f;
         }
+
+
+
+        if (AttackActive)
+        {
+            attackHitbox.enabled = true;
+            if (isFacingRight)
+            {
+                attackHitbox.offset = new Vector2(10, 0);
+            }
+            else
+            {
+                attackHitbox.offset = new Vector2(-10, 0);
+            }
+        }
+        else
+        {
+            attackHitbox.enabled = false;
+        }
     }
 
     private void FixedUpdate()
@@ -187,7 +210,15 @@ public class PlayerController : MonoBehaviour
     private void OnAttack(InputAction.CallbackContext context)
     {
         //start attack animation
+        StartCoroutine(Slash());
+    }
 
+
+    private IEnumerator Slash()
+    {
+        AttackActive = true;
+        yield return new WaitForSeconds(0.5f);
+        AttackActive = false;
     }
 
     private void OnDrawGizmos()
