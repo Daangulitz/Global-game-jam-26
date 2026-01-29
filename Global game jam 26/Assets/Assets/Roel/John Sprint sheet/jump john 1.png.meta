@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f0cb9e60437415c41bf5df03fdabdb45
+guid: 06b63c4aa56533944b89b078f8e2c414
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: jump john_0
+      name: jump john 1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 6000
-        width: 2000
-        height: 2000
+        y: 6400
+        width: 1600
+        height: 1600
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,20 +112,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa92ad7aaf8b9d8458647d963cb2875c
-      internalID: -1579870461
+      spriteID: e49f837db567a514f96d3fdd577c5f1b
+      internalID: 904287147
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: jump john_1
+      name: jump john 1_1
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 6000
-        width: 2000
-        height: 2000
+        x: 1600
+        y: 6400
+        width: 1600
+        height: 1600
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,20 +134,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8fe2a6e3bbd658d44bbfd273ca721243
-      internalID: -1654011525
+      spriteID: ff78f806088460a498670fdb8d51943f
+      internalID: 312245278
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: jump john_2
+      name: jump john 1_2
       rect:
         serializedVersion: 2
-        x: 4000
-        y: 6000
-        width: 2000
-        height: 2000
+        x: 3200
+        y: 6400
+        width: 1600
+        height: 1600
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,20 +156,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9dd9efda00aec534ba86cbfa8931cc05
-      internalID: -1302048646
+      spriteID: 0cbb10cf83852464da785ac38b6d3c82
+      internalID: 1040960393
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: jump john_3
+      name: jump john 1_3
       rect:
         serializedVersion: 2
-        x: 6000
-        y: 6000
-        width: 2000
-        height: 2000
+        x: 4800
+        y: 6400
+        width: 1600
+        height: 1600
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,108 +178,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dfc3b291a55937f439ec4a023d59d132
-      internalID: 937899639
+      spriteID: 98317c1d735c9ba47b5ff9dd01af9761
+      internalID: -1796030823
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: jump john_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 4000
-        width: 2000
-        height: 2000
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b86a74c3c0c6b2a4ba9ab233ff7c1b14
-      internalID: -1825027613
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: jump john_5
-      rect:
-        serializedVersion: 2
-        x: 2000
-        y: 4000
-        width: 2000
-        height: 2000
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9c80ec1f516813540b68671d5d460ffb
-      internalID: -913884539
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: jump john_6
-      rect:
-        serializedVersion: 2
-        x: 4000
-        y: 4000
-        width: 2000
-        height: 2000
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9306e5dd5ea33b847a17a6ab514c09c1
-      internalID: 35577198
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: jump john_7
-      rect:
-        serializedVersion: 2
-        x: 6000
-        y: 4000
-        width: 2000
-        height: 2000
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 07c55f4c37d24104fa967d7a535be299
-      internalID: -1208270819
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: jump john_8
+      name: jump john 1_4
       rect:
         serializedVersion: 2
         x: 0
-        y: 2000
-        width: 2000
-        height: 2000
+        y: 4800
+        width: 1600
+        height: 1600
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -288,20 +200,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5fb44145eb9613419af1346e369bf90
-      internalID: 1716368746
+      spriteID: 6bc51817c17138c42a4073c7f5c6d465
+      internalID: -1322345881
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: jump john_9
+      name: jump john 1_5
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 2000
-        width: 2000
-        height: 2000
+        x: 1600
+        y: 4800
+        width: 1600
+        height: 1600
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -310,20 +222,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1f73761c5d3d13498733f75b6f3010d
-      internalID: -2023567538
+      spriteID: 8d558f9f01fcf1f45983962e8413dd90
+      internalID: 1496883825
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: jump john_10
+      name: jump john 1_6
       rect:
         serializedVersion: 2
-        x: 4000
-        y: 2000
-        width: 2000
-        height: 2000
+        x: 3200
+        y: 4800
+        width: 1600
+        height: 1600
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -332,20 +244,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 787e1cc47e60e5e4a82b9314ab28d849
-      internalID: -1954597132
+      spriteID: 36d12033d5ebcf84aa6833065442514c
+      internalID: 814588189
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: jump john_11
+      name: jump john 1_7
       rect:
         serializedVersion: 2
-        x: 6000
-        y: 2000
-        width: 2000
-        height: 2000
+        x: 4800
+        y: 4800
+        width: 1600
+        height: 1600
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -354,20 +266,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8cf3c648574e87642b507688319d2b53
-      internalID: 469219996
+      spriteID: ae419684ed695574e88e9de907a06690
+      internalID: 1320470762
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: jump john_12
+      name: jump john 1_8
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 2000
-        height: 2000
+        y: 3200
+        width: 1600
+        height: 1600
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -376,20 +288,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f831a567b2ff69a41bbdf72272e5018e
-      internalID: -1178371454
+      spriteID: 4ba770f282889f04e8229d4f3f1c06bd
+      internalID: 621491481
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: jump john_13
+      name: jump john 1_9
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 0
-        width: 2000
-        height: 2000
+        x: 1600
+        y: 3200
+        width: 1600
+        height: 1600
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -398,20 +310,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ba8662a1743c124785fd8f88c95c251
-      internalID: -993867524
+      spriteID: 4c0e9fa4f555c0d4db9a7f1c070843fb
+      internalID: 320302106
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: jump john_14
+      name: jump john 1_10
       rect:
         serializedVersion: 2
-        x: 4000
-        y: 0
-        width: 2000
-        height: 2000
+        x: 3200
+        y: 3200
+        width: 1600
+        height: 1600
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -420,20 +332,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72e660df55239f94bb6edfaeed71a5f8
-      internalID: -1330828457
+      spriteID: 1f3876ad84019824983e3a0fad53d29c
+      internalID: 1155967938
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: jump john_15
+      name: jump john 1_11
       rect:
         serializedVersion: 2
-        x: 6000
-        y: 0
-        width: 2000
-        height: 2000
+        x: 4800
+        y: 3200
+        width: 1600
+        height: 1600
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -442,8 +354,140 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8230a5d8ff27c7a4693a2ce42c5c4325
-      internalID: -127586885
+      spriteID: d7c676667201b5a4eba86f6863bae1a4
+      internalID: 1505373006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jump john 1_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1600
+        width: 1600
+        height: 1600
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72338592701e1514bbfb962359180b8b
+      internalID: -135958114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jump john 1_13
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 1600
+        width: 1600
+        height: 1600
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9942a4c1084455e4c85aef854db1af78
+      internalID: -1840028419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jump john 1_14
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 1600
+        width: 1600
+        height: 1600
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8646f79c9bad7aa49a89c8c21bed5e07
+      internalID: 1536410037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jump john 1_15
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 1600
+        width: 1600
+        height: 1600
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fe526da6ddbf2c48ace9d110fc1b196
+      internalID: -84869500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jump john 1_16
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 0
+        width: 1600
+        height: 1600
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ef894566db43a94ca911f6b377a610e
+      internalID: -893221874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jump john 1_17
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 0
+        width: 1600
+        height: 1600
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0fd8ed55a029dd4b87fca50376ea193
+      internalID: -252501659
       vertices: []
       indices: 
       edges: []
@@ -452,7 +496,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 18267c8f3fa765d4f9fbd534baf775ec
+    spriteID: cad2c8b71d1705643b9ab4377073a8e6
     internalID: 0
     vertices: []
     indices: 
@@ -462,24 +506,26 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":4.0},"gridSpriteSize":{"x":2000.0,"y":2000.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":5.0},"gridSpriteSize":{"x":1600.0,"y":1600.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      jump john_0: -1579870461
-      jump john_1: -1654011525
-      jump john_10: -1954597132
-      jump john_11: 469219996
-      jump john_12: -1178371454
-      jump john_13: -993867524
-      jump john_14: -1330828457
-      jump john_15: -127586885
-      jump john_2: -1302048646
-      jump john_3: 937899639
-      jump john_4: -1825027613
-      jump john_5: -913884539
-      jump john_6: 35577198
-      jump john_7: -1208270819
-      jump john_8: 1716368746
-      jump john_9: -2023567538
+      jump john 1_0: 904287147
+      jump john 1_1: 312245278
+      jump john 1_10: 1155967938
+      jump john 1_11: 1505373006
+      jump john 1_12: -135958114
+      jump john 1_13: -1840028419
+      jump john 1_14: 1536410037
+      jump john 1_15: -84869500
+      jump john 1_16: -893221874
+      jump john 1_17: -252501659
+      jump john 1_2: 1040960393
+      jump john 1_3: -1796030823
+      jump john 1_4: -1322345881
+      jump john 1_5: 1496883825
+      jump john 1_6: 814588189
+      jump john 1_7: 1320470762
+      jump john 1_8: 621491481
+      jump john 1_9: 320302106
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
