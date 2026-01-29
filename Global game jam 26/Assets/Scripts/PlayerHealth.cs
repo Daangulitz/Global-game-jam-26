@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -21,7 +22,22 @@ public class PlayerHealth : MonoBehaviour
 
         if (gameManager != null && gameManager.masks.Count > 0)
         {
-            gameManager.RemoveMask();
+            if (gameManager.masks.Any(m => m.id == 0))
+            {
+                //
+                if (Random.value < 0.5f)
+                {
+                    gameManager.RemoveMask();
+                }
+                else
+                {
+                    Debug.LogError("Player Does not have taken a hit");
+                }
+            }
+            else
+            {
+                gameManager.RemoveMask();
+            }
 
             if (gameManager.masks.Count <= 0)
             {
