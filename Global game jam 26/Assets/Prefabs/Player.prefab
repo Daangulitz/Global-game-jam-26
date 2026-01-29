@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1639336880006292532}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 7.1505218, z: -10}
+  m_LocalPosition: {x: 0, y: 71.50522, z: -100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -132,7 +132,7 @@ Transform:
   m_GameObject: {fileID: 3291177857920665575}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.0116001, z: 0}
+  m_LocalPosition: {x: 0, y: -7.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -167,7 +167,7 @@ Transform:
   m_GameObject: {fileID: 4257387977560464321}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 7.1505218, z: -10}
+  m_LocalPosition: {x: 0, y: 71.50522, z: -100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -322,6 +322,7 @@ GameObject:
   - component: {fileID: 8170129529710086964}
   - component: {fileID: 4049688410274771193}
   - component: {fileID: 5332211774507578747}
+  - component: {fileID: 6856305757955721005}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -339,8 +340,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -21.44713, y: -0.41772985, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4513839971316223243}
   - {fileID: 8236371695420790844}
@@ -396,7 +397,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: 621080116, guid: 7f16e1d9fbb5e7846a8b12994c081cd7, type: 3}
   m_Color: {r: 0.21995485, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -418,7 +419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 722fe6adc53f24d47988200cbcf84585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  constantForwardSpeed: 5
+  constantForwardSpeed: 10
   jumpForce: 10
   groundCheck: {fileID: 4513839971316223243}
   groundRadius: 0.2
@@ -427,6 +428,7 @@ MonoBehaviour:
     m_Bits: 64
   moveAction: {fileID: 0}
   jumpAction: {fileID: 0}
+  isGrounded: 0
 --- !u!114 &8170129529710086964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -474,7 +476,7 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 7, y: 16}
   m_Direction: 0
 --- !u!50 &5332211774507578747
 Rigidbody2D:
@@ -492,7 +494,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 84e02fe48f9035244bd5dba390551c3e, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -503,3 +505,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &6856305757955721005
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7882400681379028956}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e7792b1aba4891c4d85a92d80a65ae56, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
