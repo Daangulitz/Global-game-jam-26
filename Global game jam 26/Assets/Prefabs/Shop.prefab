@@ -1512,11 +1512,15 @@ MonoBehaviour:
   rarity1: {fileID: 3017831707233171674}
   rarity2: {fileID: 5509308717156881267}
   rarity3: {fileID: 1037395298635831157}
+  choice1: {fileID: 0}
+  choice2: {fileID: 0}
+  choice3: {fileID: 0}
   maskPrefabs:
   - {fileID: 11400000, guid: fd3406367286a5b479d060031e1380aa, type: 2}
   - {fileID: 11400000, guid: 52afe7a57f2ef2245b4427e9e4a57d98, type: 2}
   - {fileID: 11400000, guid: 3fa1446fca1800743a24bf0a080d69ee, type: 2}
   - {fileID: 11400000, guid: 720f398b8eb19aa46b64b79b6aa88e4e, type: 2}
+  - {fileID: 11400000, guid: 9ba7125818398cd4eb283341e97b0344, type: 2}
 --- !u!1 &7255131524198806204
 GameObject:
   m_ObjectHideFlags: 0
