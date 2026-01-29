@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 121c9c2be184adc4b8db6c2b01d5e500, type: 3}
-  m_Name: Racing Helmet
+  m_Name: Blue Spirit Mask
   m_EditorClassIdentifier: Assembly-CSharp::Mask
-  rarity: 0
-  maskName: Racing Helmet
-  description: Increases movement speed, when standing still masks slowly breaks
-  sprite: {fileID: 21300000, guid: eaee031b30b006b44a3c68326cc6bb3d, type: 3}
-  id: 3
+  rarity: 1
+  maskName: Blue Spirit Mask
+  description: Increase Stealth and Jump height, Decreases movement speed
+  sprite: {fileID: 21300000, guid: f278fd19ffcb24e45a83238969880bf7, type: 3}
+  id: 6
