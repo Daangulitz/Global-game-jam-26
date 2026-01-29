@@ -1557,8 +1557,10 @@ MonoBehaviour:
   uncommonMaskPrefabs:
   - {fileID: 11400000, guid: 9ba7125818398cd4eb283341e97b0344, type: 2}
   - {fileID: 11400000, guid: ba57b5d4d1f846c438c0362c41a7dd9b, type: 2}
+  - {fileID: 11400000, guid: 929568a8cebd64c4e941c223fd10ea63, type: 2}
   specialMaskPrefabs:
   - {fileID: 11400000, guid: d7b37b35c846f0a4d968e9cae42a3675, type: 2}
+  - {fileID: 11400000, guid: 099916e4f9eefae43877206facc9a141, type: 2}
 --- !u!114 &2956228318925231723
 MonoBehaviour:
   m_ObjectHideFlags: 0
