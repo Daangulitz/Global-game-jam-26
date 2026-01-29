@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
         if (steerInput != 0)
         {
             _animator.SetFloat("Speed", Mathf.Abs(steerInput));
-            rb.linearVelocity = new Vector2(horizontalVelocity, rb.linearVelocity.y);
+            rb.linearVelocity = new Vector2(rb.linearVelocityX, rb.linearVelocity.y);
         }
     }
 
