@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
@@ -86,38 +87,29 @@ public class Shop : MonoBehaviour
         choice3 = randomMask3;
         maskPrefabs.Remove(randomMask3);
     }
-    
-    public void ButtonClicked(int i)
-    {
-        if (i == 0)
-        {
-            gm.AddMask(choice1);
-            Debug.Log("Mask added: " + choice1.maskName);
-        }
-        else if (i == 1)
-        {
-            gm.AddMask(choice2);
-            Debug.Log("Mask added: " + choice2.maskName);
-        }
-        else
-        {
-            gm.AddMask(choice3);
-            Debug.Log("Mask added: " + choice3.maskName);
-        }
-    }
-
 
     public void Option1Click()
     {
-        ButtonClicked(0);
+        Debug.LogError("Mask added: " + choice1.maskName);
+        gm.AddMask(choice1);
+        NextScene();
     }
     public void Option2Click()
-    {
-        ButtonClicked(1);
+    { 
+        gm.AddMask(choice2);
+        Debug.LogError("Mask added: " + choice2.maskName);
+        NextScene();
     }
     public void Option3Click()
     {
-        ButtonClicked(2);
+        gm.AddMask(choice3);
+        Debug.LogError("Mask added: " + choice3.maskName);
+        NextScene();
+    }
+
+    private void NextScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
 }
