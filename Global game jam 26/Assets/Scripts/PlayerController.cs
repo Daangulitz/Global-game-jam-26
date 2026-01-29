@@ -102,7 +102,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isGrounded)
         {
-            rb.AddForce(Vector3.up * jumpForce);
+            rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
             //rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             _animator.SetTrigger("Jump");
         }
