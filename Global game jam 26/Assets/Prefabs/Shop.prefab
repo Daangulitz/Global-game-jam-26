@@ -1549,14 +1549,16 @@ MonoBehaviour:
   choice1: {fileID: 0}
   choice2: {fileID: 0}
   choice3: {fileID: 0}
-  maskPrefabs:
+  commonMaskPrefabs:
   - {fileID: 11400000, guid: fd3406367286a5b479d060031e1380aa, type: 2}
   - {fileID: 11400000, guid: 52afe7a57f2ef2245b4427e9e4a57d98, type: 2}
   - {fileID: 11400000, guid: 3fa1446fca1800743a24bf0a080d69ee, type: 2}
   - {fileID: 11400000, guid: 720f398b8eb19aa46b64b79b6aa88e4e, type: 2}
+  uncommonMaskPrefabs:
   - {fileID: 11400000, guid: 9ba7125818398cd4eb283341e97b0344, type: 2}
-  - {fileID: 11400000, guid: d7b37b35c846f0a4d968e9cae42a3675, type: 2}
   - {fileID: 11400000, guid: ba57b5d4d1f846c438c0362c41a7dd9b, type: 2}
+  specialMaskPrefabs:
+  - {fileID: 11400000, guid: d7b37b35c846f0a4d968e9cae42a3675, type: 2}
 --- !u!114 &2956228318925231723
 MonoBehaviour:
   m_ObjectHideFlags: 0

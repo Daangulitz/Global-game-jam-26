@@ -13,7 +13,9 @@ public class Shop : MonoBehaviour
     
 
     public Mask choice1, choice2, choice3;
-    public List<Mask> maskPrefabs = new();
+    public List<Mask> commonMaskPrefabs = new();
+    public List<Mask> uncommonMaskPrefabs = new();
+    public List<Mask> specialMaskPrefabs = new();
 
     private GameManager gm;
     
@@ -26,7 +28,8 @@ public class Shop : MonoBehaviour
 
     public void LoadNewShop()
     {
-        Mask randomMask1 = maskPrefabs[Random.Range(0, maskPrefabs.Count)];
+        Mask randomMask1 = GetRandomMask();
+
         visual1.sprite = randomMask1.sprite;
         name1.text = randomMask1.maskName;
         description1.text = randomMask1.description;
@@ -42,12 +45,11 @@ public class Shop : MonoBehaviour
         }
         else
         {
-            rarity1.color = Color.grey;
+            rarity1.color = Color.lightGray;
         }
         choice1 = randomMask1;
-        maskPrefabs.Remove(randomMask1);
 
-        Mask randomMask2 = maskPrefabs[Random.Range(0, maskPrefabs.Count)];
+        Mask randomMask2 = GetRandomMask();
         visual2.sprite = randomMask2.sprite;
         name2.text = randomMask2.maskName;
         description2.text = randomMask2.description;
@@ -62,12 +64,11 @@ public class Shop : MonoBehaviour
         }
         else
         {
-            rarity2.color = Color.grey;
+            rarity2.color = Color.lightGray;
         }
         choice2 = randomMask2;
-        maskPrefabs.Remove(randomMask2);
 
-        Mask randomMask3 = maskPrefabs[Random.Range(0, maskPrefabs.Count)];
+        Mask randomMask3 = GetRandomMask();
         visual3.sprite = randomMask3.sprite;
         name3.text = randomMask3.maskName;
         description3.text = randomMask3.description;
@@ -85,7 +86,30 @@ public class Shop : MonoBehaviour
             rarity3.color = Color.lightGray;
         }
         choice3 = randomMask3;
-        maskPrefabs.Remove(randomMask3);
+    }
+
+
+    private Mask GetRandomMask()
+    {
+        int rng = Random.Range(0, 1000);
+        if (rng > 800 && specialMaskPrefabs.Count > 0)
+        {
+            Mask specialMask = specialMaskPrefabs[Random.Range(0, specialMaskPrefabs.Count)];
+            specialMaskPrefabs.Remove(specialMask);
+            return specialMask;
+        }
+        else if (rng > 500 && uncommonMaskPrefabs.Count > 0)
+        {
+            Mask uncommonMask = uncommonMaskPrefabs[Random.Range(0, uncommonMaskPrefabs.Count)];
+            uncommonMaskPrefabs.Remove(uncommonMask);
+            return uncommonMask;
+        }
+        else
+        {
+            Mask commonMask = commonMaskPrefabs[Random.Range(0, commonMaskPrefabs.Count)];
+            commonMaskPrefabs.Remove(commonMask);
+            return commonMask;
+        }
     }
 
     public void Option1Click()
