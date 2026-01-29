@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
     [Header("Input References")]
     [SerializeField] private InputActionReference moveAction;
     [SerializeField] private InputActionReference jumpAction;
+    [SerializeField] private InputActionReference attackAction;
 
     [Header("MaskUpgradeSettings")] 
     [SerializeField] private float BlueSpiritMaskJumpUpgradeX;
@@ -45,6 +46,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private float steerInput;
     public bool isGrounded;
+    public bool isFacingRight;
     private float horizontalVelocity;
 
     private Animator _animator;
@@ -62,6 +64,12 @@ public class PlayerController : MonoBehaviour
             jumpAction.action.Enable();
             jumpAction.action.performed += OnJump;
         }
+        if (attackAction != null)
+        {
+            attackAction.action.Enable();
+            attackAction.action.performed += OnAttack;
+        }
+
     }
 
     private void OnDisable()
@@ -127,13 +135,15 @@ public class PlayerController : MonoBehaviour
             _animator.SetFloat("Speed", 0f);
         }
 
-        if (steerInput >= 0)
+        if (steerInput > 0)
         {
             _spriteRenderer.flipX = false;
+            isFacingRight = true;
         }
         else if (steerInput < 0)
         {
             _spriteRenderer.flipX = true;
+            isFacingRight = false;
         }
     }
 
@@ -150,6 +160,12 @@ public class PlayerController : MonoBehaviour
             
             _animator.SetTrigger("Jump");
         }
+    }
+
+    private void OnAttack(InputAction.CallbackContext context)
+    {
+        //start attack animation
+
     }
 
     private void OnDrawGizmos()
