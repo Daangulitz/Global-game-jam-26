@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
     private float steerInput;
-    private bool isGrounded;
+    public bool isGrounded;
     private float horizontalVelocity;
 
     private void OnEnable()
