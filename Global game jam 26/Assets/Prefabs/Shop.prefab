@@ -557,7 +557,7 @@ GameObject:
   - component: {fileID: 2432553167402230917}
   - component: {fileID: 5314426532968767189}
   m_Layer: 0
-  m_Name: Visual
+  m_Name: Visual1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -917,7 +917,7 @@ GameObject:
   - component: {fileID: 230662601949731361}
   - component: {fileID: 2612849027309154196}
   m_Layer: 0
-  m_Name: Visual
+  m_Name: Visual3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1594,7 +1594,7 @@ GameObject:
   - component: {fileID: 4597121505046993699}
   - component: {fileID: 2710032666505360840}
   m_Layer: 0
-  m_Name: Visual
+  m_Name: Visual2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1760,9 +1760,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 101f5b1d624d8974db00f2993f7caaf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shop
-  option1: {fileID: 4126411123659943888}
-  option2: {fileID: 5016635150699510813}
-  option3: {fileID: 8880997193087338487}
+  visual1: {fileID: 2432553167402230917}
+  visual2: {fileID: 4597121505046993699}
+  visual3: {fileID: 230662601949731361}
   name1: {fileID: 9081832313570134971}
   name2: {fileID: 1213778250238504637}
   name3: {fileID: 562779669338345434}
