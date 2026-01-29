@@ -6,10 +6,12 @@ public class Stairs : MonoBehaviour
 {
     [SerializeField] private Transform targetPostion;
     private GameObject player;
+    private GameSceneManager gsm;
     
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        gsm = FindObjectOfType<GameSceneManager>();
     }
     
     private void OnTriggerEnter2D(Collider2D other)
@@ -17,8 +19,7 @@ public class Stairs : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             player.transform.position = targetPostion.position;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            Debug.Log("Player has entered the stairs area and is moving to the next level.");
+            gsm.MoveToNextLocation();
         }
     }
 }
