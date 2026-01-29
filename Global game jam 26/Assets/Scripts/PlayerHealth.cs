@@ -22,7 +22,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (gameManager != null && gameManager.masks.Count > 0)
         {
-            if (gameManager.masks.Any(m => m.id == 0))
+            if (gameManager.masks.Any(m => m.id == 7))
             {
                 //
                 if (Random.value < 0.5f)
