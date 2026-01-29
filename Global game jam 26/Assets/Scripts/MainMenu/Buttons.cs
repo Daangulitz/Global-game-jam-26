@@ -3,7 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class Buttons : MonoBehaviour
 {
-    [SerializeField] private Mask trymask;
     private GameManager gameManager;
     
     void Start()
@@ -13,7 +12,6 @@ public class Buttons : MonoBehaviour
     
     public void StartGame()
     {
-        gameManager.AddMask(trymask);
         SceneManager.LoadScene("Daan");
     }
 
