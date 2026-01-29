@@ -31,6 +31,7 @@ public class Shop : MonoBehaviour
         Mask randomMask1 = GetRandomMask();
 
         visual1.sprite = randomMask1.sprite;
+
         name1.text = randomMask1.maskName;
         description1.text = randomMask1.description;
         rarity1.text = randomMask1.rarity.ToString();
@@ -42,6 +43,7 @@ public class Shop : MonoBehaviour
         else if (randomMask1.rarity == Rarity.Special)
         {
             rarity1.color = Color.purple;
+            visual1.material = randomMask1.material;
         }
         else
         {
@@ -51,6 +53,7 @@ public class Shop : MonoBehaviour
 
         Mask randomMask2 = GetRandomMask();
         visual2.sprite = randomMask2.sprite;
+
         name2.text = randomMask2.maskName;
         description2.text = randomMask2.description;
         rarity2.text = randomMask2.rarity.ToString();
@@ -61,6 +64,7 @@ public class Shop : MonoBehaviour
         else if (randomMask2.rarity == Rarity.Special)
         {
             rarity2.color = Color.purple;
+            visual2.material = randomMask2.material;
         }
         else
         {
@@ -70,6 +74,7 @@ public class Shop : MonoBehaviour
 
         Mask randomMask3 = GetRandomMask();
         visual3.sprite = randomMask3.sprite;
+
         name3.text = randomMask3.maskName;
         description3.text = randomMask3.description;
         rarity3.text = randomMask3.rarity.ToString();
@@ -80,6 +85,7 @@ public class Shop : MonoBehaviour
         else if (randomMask3.rarity == Rarity.Special)
         {
             rarity3.color = Color.purple;
+            visual3.material = randomMask3.material;
         }
         else
         {

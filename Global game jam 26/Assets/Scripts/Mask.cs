@@ -9,6 +9,7 @@ public class Mask : ScriptableObject
     public string maskName;
     public string description;
     public Sprite sprite;
+    public Material material;
     public int id;
 }
 public enum Rarity

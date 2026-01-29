@@ -16,4 +16,5 @@ MonoBehaviour:
   maskName: Racing Helmet
   description: Increases movement speed, when standing still masks slowly breaks
   sprite: {fileID: 21300000, guid: eaee031b30b006b44a3c68326cc6bb3d, type: 3}
+  material: {fileID: 2100000, guid: 80c25528cc509a840b32290d07fb3bc6, type: 2}
   id: 3
