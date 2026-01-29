@@ -5,7 +5,6 @@ public class SpikeDamage : MonoBehaviour
 {
     private GameObject Player;
     private PlayerHealth playerHealth;
-    [SerializeField] private int damageAmount = 1;
     [SerializeField] private Transform targetPostiion;
 
     private void Start()
@@ -18,7 +17,7 @@ public class SpikeDamage : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            playerHealth.TakeDamage(damageAmount);
+            playerHealth.TakeDamage();
             Player.transform.position = targetPostiion.position;
         }
     }

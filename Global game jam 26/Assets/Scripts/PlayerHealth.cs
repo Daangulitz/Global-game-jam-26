@@ -1,29 +1,37 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] private int MaxHealth;
-    private int currentHealth;
+    private GameManager gameManager;
 
     private void Start()
     {
-        currentHealth = MaxHealth;
+        FindGameManager();
+    }
+    
+    private void FindGameManager()
+    {
+        gameManager = FindFirstObjectByType<GameManager>();
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage()
     {
-        currentHealth  -= damage;
-        
-        if (currentHealth <= 0)
+        if (gameManager == null) FindGameManager();
+
+        if (gameManager != null && gameManager.masks.Count > 0)
         {
-            Death();
+            gameManager.RemoveMask();
+
+            if (gameManager.masks.Count <= 0)
+            {
+                Death();
+            }
         }
     }
 
     private void Death()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("MainMenu");
     }
 }

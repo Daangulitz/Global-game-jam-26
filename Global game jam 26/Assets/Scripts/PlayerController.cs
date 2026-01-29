@@ -74,7 +74,10 @@ public class PlayerController : MonoBehaviour
     {
         // Always moving logic
         horizontalVelocity = (steerInput < 0) ? -constantForwardSpeed : constantForwardSpeed;
-        rb.linearVelocity = new Vector2(horizontalVelocity, rb.linearVelocity.y);
+        if (steerInput != 0)
+        {
+            rb.linearVelocity = new Vector2(horizontalVelocity, rb.linearVelocity.y);
+        }
     }
 
     private void OnJump(InputAction.CallbackContext context)
