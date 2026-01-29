@@ -1,177 +1,68 @@
-using System.Collections.Generic;
+using System;
 using UnityEngine;
-using UnityEngine.AI;
+using Pathfinding; // Required for A* Pathfinding Project
 
-public class BaseEnemy : MonoBehaviour
+public class EnemyBase : MonoBehaviour
 {
-    public enum EnemyState
+    [Header("Target Settings")]
+    public Transform player;
+    public float detectionRange = 10f;
+    public LayerMask obstacleLayer;
+
+    private PlayerHealth ph;
+
+    private IAstarAI ai;
+
+    void Start()
     {
-        Idle,
-        Follow,
-        Attack,
-        Dead
+        ai = GetComponent<IAstarAI>();
+        player = GameObject.FindWithTag("Player").transform;
+        ph = FindObjectOfType<PlayerHealth>();
     }
 
-    public EnemyState currentState;
-
-    [SerializeField] protected float FollowDistance = 15f;
-    [SerializeField] protected float AttackDistance = 2.5f;
-    [SerializeField] protected float AttackRate = 1f;
-    [SerializeField] private float waitTimeAtDestination = 2f;
-
-    protected float lastAttackTime;
-    protected NavMeshAgent agent;
-    protected Transform targetPlayer;
-    protected PlayerHealth playerHealth;
-
-    private List<Transform> players = new List<Transform>();
-    private HashSet<int> knownPlayerIds = new HashSet<int>();
-    
-    private bool isDead;
-    protected Animator animator;
-
-    protected virtual void Start()
+    void FixedUpdate()
     {
-        agent = GetComponent<NavMeshAgent>();
-        ChangeState(EnemyState.Idle);
-        animator = GetComponent<Animator>();
-    }
+        if (player == null) return;
 
-    protected virtual void Update()
-    {
-        UpdatePlayers();
-        SetTargetPlayer();
-        HandleState();
-        SetState();
-    }
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
-    private void UpdatePlayers()
-    {
-        GameObject[] playerObjects = GameObject.FindGameObjectsWithTag("Player");
-
-        foreach (GameObject obj in playerObjects)
+        // 1. Check if Player is in range AND we have Line of Sight
+        if (distanceToPlayer <= detectionRange && HasLineOfSight())
         {
-            Transform tf = obj.transform;
-            if (tf != null && !knownPlayerIds.Contains(tf.GetInstanceID()))
-            {
-                players.Add(tf);
-                knownPlayerIds.Add(tf.GetInstanceID());
-            }
+            // Follow player: Update the destination and resume moving
+            ai.destination = player.position;
+            ai.isStopped = false;
         }
-
-        players.RemoveAll(p => p == null);
-    }
-
-    private void SetTargetPlayer()
-    {
-        float closestDistance = Mathf.Infinity;
-        Transform closest = null;
-
-        foreach (Transform player in players)
+        else
         {
-            float dist = Vector3.Distance(transform.position, player.position);
-            if (dist < closestDistance)
-            {
-                closestDistance = dist;
-                closest = player;
-            }
-        }
-
-        targetPlayer = closest;
-
-        // ✅ Make sure we get the correct health reference
-        if (targetPlayer != null)
-        {
-            playerHealth = targetPlayer.GetComponent<PlayerHealth>();
+            ai.isStopped = true;
         }
     }
 
-    public void ChangeState(EnemyState newState)
+    bool HasLineOfSight()
     {
-        currentState = newState;
+        Vector2 direction = (player.position - transform.position).normalized;
+        float distance = Vector2.Distance(transform.position, player.position);
+
+        // Shoot a ray from enemy to player
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, distance, obstacleLayer);
+
+        // If it hits nothing, the path is clear to the player
+        return hit.collider == null;
     }
 
-    protected virtual void SetState()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (currentState == EnemyState.Dead || targetPlayer == null) return;
-
-        float distance = Vector3.Distance(transform.position, targetPlayer.position);
-
-        if (distance <= AttackDistance)
+        if (other.gameObject.CompareTag("Player"))
         {
-            ChangeState(EnemyState.Attack);
-        }
-        else if (distance <= FollowDistance)
-        {
-            ChangeState(EnemyState.Follow);
-        }
-    }
-
-    protected void HandleState()
-    {
-        switch (currentState)
-        {
-            case EnemyState.Idle:
-                UpdateIdle();
-                break;
-            case EnemyState.Follow:
-                UpdateFollow();
-                break;
-            case EnemyState.Attack:
-                UpdateAttack();
-                break;
-            case EnemyState.Dead:
-                if (!isDead) UpdateDead();
-                break;
+            ph.TakeDamage();
         }
     }
 
-    protected virtual void UpdateIdle()
+    // Visualizes the detection range in the editor
+    private void OnDrawGizmosSelected()
     {
-        
-    }
-
-
-    protected virtual void UpdateFollow()
-    {
-        if (targetPlayer != null)
-        {
-            // Stop movement
-            agent.isStopped = true;
-
-            // Get direction towards player
-            Vector3 direction = (targetPlayer.position - transform.position).normalized;
-
-            // Ignore vertical rotation (keep enemy upright)
-            direction.y = 0f;
-
-            if (direction != Vector3.zero)
-            {
-                // Create target rotation
-                Quaternion targetRotation = Quaternion.LookRotation(direction);
-
-                // Smoothly rotate towards player
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
-            }
-        }
-    }
-
-    protected virtual void UpdateAttack()
-    {
-        if (targetPlayer == null) return;
-
-        agent.isStopped = true;
-
-        Vector3 lookDirection = targetPlayer.position - transform.position;
-        lookDirection.y = 0;
-        if (lookDirection != Vector3.zero)
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookDirection), Time.deltaTime * 5f);
-    }
-
-    protected virtual void UpdateDead()
-    {
-        isDead = true;
-
-        Destroy(gameObject);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, detectionRange);
     }
 }
