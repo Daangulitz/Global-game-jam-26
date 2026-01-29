@@ -129,7 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 137555939}
   - component: {fileID: 137555938}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -474,7 +474,7 @@ GameObject:
   - component: {fileID: 1201846334}
   - component: {fileID: 1201846333}
   - component: {fileID: 1201846335}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1631,7 +1631,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1428514321}
   - component: {fileID: 1428514322}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FloorCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1780,6 +1780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 243319463b9ff404d9949d04892795fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CheeseDeathHit
+  floorMapName: GroundLayer
 --- !u!1 &1593720669
 GameObject:
   m_ObjectHideFlags: 0

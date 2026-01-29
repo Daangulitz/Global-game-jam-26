@@ -6,7 +6,7 @@ TextureImporter:
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -37,13 +37,13 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
+    wrapU: 1
+    wrapV: 1
     wrapW: 0
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -52,9 +52,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -95,12 +95,452 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: idle john_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6400
+        width: 1600
+        height: 1600
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c6639be7c46b8f4e94f69d4da2c84cd
+      internalID: 621080116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle john_1
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 6400
+        width: 1600
+        height: 1600
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4abd0a53b9d207a40857b820f999a12e
+      internalID: -1119246664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle john_2
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 6400
+        width: 1600
+        height: 1600
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ccbc8902c79de445ba525d667cd3c3a
+      internalID: 1845258844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle john_3
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 6400
+        width: 1600
+        height: 1600
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0aa9738a99286b488ba10f93dc87e1c
+      internalID: 633440503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle john_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4800
+        width: 1600
+        height: 1600
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23b340265ee4a0a45b241c9b7d8b183c
+      internalID: -2100779959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle john_5
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 4800
+        width: 1600
+        height: 1600
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a60a9c972675eee429db03bb598ccdad
+      internalID: -1023841025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle john_6
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 4800
+        width: 1600
+        height: 1600
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7203a1ce57858604f9c54325389a3c11
+      internalID: 903350550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle john_7
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 4800
+        width: 1600
+        height: 1600
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d254eb7ae1516d40bd0cb74f05bb6cf
+      internalID: -725598559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle john_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3200
+        width: 1600
+        height: 1600
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8753b96fd68f5e14596debe8746e6e91
+      internalID: -598215213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle john_9
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 3200
+        width: 1600
+        height: 1600
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce2f39af87afacc4d8d14d47d2de408a
+      internalID: -505180856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle john_10
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 3200
+        width: 1600
+        height: 1600
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7d8daa2255331847be83b032d998a76
+      internalID: 1033147124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle john_11
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 3200
+        width: 1600
+        height: 1600
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26c61c4fca6ec964ba49170a668bcc28
+      internalID: -718058089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle john_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1600
+        width: 1600
+        height: 1600
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3655add87cf91f0499e50192611cc640
+      internalID: -1243147373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle john_13
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 1600
+        width: 1600
+        height: 1600
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ed269702eb1c3542b7204a88cfb99ae
+      internalID: 1793400906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle john_14
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 1600
+        width: 1600
+        height: 1600
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 889e91514a77d604780096c70fa47b6b
+      internalID: -2101967633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle john_15
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 1600
+        width: 1600
+        height: 1600
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d68845419d8ad64180d8377f92b6c34
+      internalID: 1046939139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle john_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1600
+        height: 1600
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01323610e78954a41be45cfc4a768c68
+      internalID: 285551135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle john_17
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 0
+        width: 1600
+        height: 1600
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2912fe04d3f30445abb958d192aba51
+      internalID: 1794297795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle john_18
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 0
+        width: 1600
+        height: 1600
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72e12e8c849798d46a67c19526a6d6df
+      internalID: -295469025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle john_19
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 0
+        width: 1600
+        height: 1600
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49b0c642d2d8d104c897f74f3dad0ad3
+      internalID: -549630570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c1d8d2480e8fd8641b89c3a0c9615735
     internalID: 0
     vertices: []
     indices: 
@@ -108,8 +548,30 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
-    nameFileIdTable: {}
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":5.0},"gridSpriteSize":{"x":1600.0,"y":1600.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      idle john_0: 621080116
+      idle john_1: -1119246664
+      idle john_10: 1033147124
+      idle john_11: -718058089
+      idle john_12: -1243147373
+      idle john_13: 1793400906
+      idle john_14: -2101967633
+      idle john_15: 1046939139
+      idle john_16: 285551135
+      idle john_17: 1794297795
+      idle john_18: -295469025
+      idle john_19: -549630570
+      idle john_2: 1845258844
+      idle john_3: 633440503
+      idle john_4: -2100779959
+      idle john_5: -1023841025
+      idle john_6: 903350550
+      idle john_7: -725598559
+      idle john_8: -598215213
+      idle john_9: -505180856
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

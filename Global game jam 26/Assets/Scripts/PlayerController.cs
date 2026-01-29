@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -44,6 +45,9 @@ public class PlayerController : MonoBehaviour
     public bool isGrounded;
     private float horizontalVelocity;
 
+    private Animator _animator;
+    
+
     private void OnEnable()
     {
         // Make sure actions are enabled
@@ -64,6 +68,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        _animator = GetComponent<Animator>();
+    }
+
     private void Update()
     {
         steerInput = moveAction.action.ReadValue<Vector2>().x;
@@ -76,6 +85,7 @@ public class PlayerController : MonoBehaviour
         horizontalVelocity = (steerInput < 0) ? -constantForwardSpeed : constantForwardSpeed;
         if (steerInput != 0)
         {
+            _animator.SetFloat("Speed", Mathf.Abs(steerInput));
             rb.linearVelocity = new Vector2(horizontalVelocity, rb.linearVelocity.y);
         }
     }
@@ -85,6 +95,7 @@ public class PlayerController : MonoBehaviour
         if (isGrounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            _animator.SetTrigger("Jump");
         }
     }
 
