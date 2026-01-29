@@ -10,6 +10,7 @@ public class EnemyBase : MonoBehaviour
     public float detectionRange = 10f;
     public LayerMask obstacleLayer;
     [SerializeField] private float MaxSpeedDelenDoor;
+    [SerializeField] private float DetectionRangeDelenDoor;
     
     private PlayerHealth ph;
     private GameManager gm;
@@ -52,7 +53,8 @@ public class EnemyBase : MonoBehaviour
 
         if (!MaxRangeIsSet && gm.masks.Any(m => m.id == 1))
         {
-            
+            detectionRange = detectionRange / DetectionRangeDelenDoor;
+            MaxRangeIsSet = true;
         }
     }
 
