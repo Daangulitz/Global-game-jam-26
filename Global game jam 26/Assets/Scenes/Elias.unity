@@ -1171,8 +1171,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f43974a0de180849b3d793405e65d84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tilt
-  flickStrength: 0.1
-  flickFrames: 240
+  flickStrength: 10
+  flickInterval: 1
+  steps: 4
+  stepDelay: 0.02
 --- !u!1 &1862890837
 GameObject:
   m_ObjectHideFlags: 0
