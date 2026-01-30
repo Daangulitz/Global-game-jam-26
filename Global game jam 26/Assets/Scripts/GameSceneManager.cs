@@ -34,7 +34,7 @@ public class GameSceneManager : MonoBehaviour
         // Check if tutorial was ever finished
         if (PlayerPrefs.GetInt("TutorialDone", 0) == 0)
         {
-            SceneManager.LoadScene("Tutorial");
+            SceneManager.LoadScene("Tutorial"); 
         }
         else
         {
