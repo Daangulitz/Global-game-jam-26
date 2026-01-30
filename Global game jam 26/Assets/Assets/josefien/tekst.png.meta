@@ -325,7 +325,7 @@ TextureImporter:
         width: 46
         height: 63
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -334,6 +334,94 @@ TextureImporter:
       bones: []
       spriteID: b92852a0913633e4980fab6ff4ee5686
       internalID: -1873876588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tekst_11
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 561
+        width: 429
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afa3438d58371f6419591110f70719b7
+      internalID: 733634669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tekst_12
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 562
+        width: 208
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a60c68ec97f62c4792d52675b2caa47
+      internalID: -1666740980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tekst_13
+      rect:
+        serializedVersion: 2
+        x: 1103
+        y: 567
+        width: 447
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a340ba78123d7e44fb6ed81fe4c3e40b
+      internalID: 219381158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tekst_14
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 391
+        width: 368
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 666c3a17e41d360408a632dd3c112edf
+      internalID: 1832746531
       vertices: []
       indices: 
       edges: []
@@ -355,6 +443,10 @@ TextureImporter:
       tekst_0: -565068796
       tekst_1: -548585942
       tekst_10: -1873876588
+      tekst_11: 733634669
+      tekst_12: -1666740980
+      tekst_13: 219381158
+      tekst_14: 1832746531
       tekst_2: -1299873551
       tekst_3: 336435675
       tekst_4: 1547017939
