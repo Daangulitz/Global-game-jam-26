@@ -35,37 +35,29 @@ public class GameSceneManager : MonoBehaviour
         if(fadeCanvasGroup != null) fadeCanvasGroup.alpha = 0;
     }
 
-    // --- START GAME LOGIC ---
-    // Call this from your Main Menu "Play" button
     public void StartGame()
     {
-        // Check if tutorial has been completed before
         if (PlayerPrefs.GetInt("TutorialDone", 0) == 0)
         {
             SceneManager.LoadScene(tutorialSceneName);
         }
         else
         {
-            // If tutorial is done, start the game loop
             currentWorld = 1;
             currentLevelInWorld = 0;
             MoveToNextLocation();
         }
     }
 
-    // Call this specifically from the end of the Tutorial level
     public void FinishTutorial()
     {
         PlayerPrefs.SetInt("TutorialDone", 1);
         PlayerPrefs.Save();
-        
-        // After tutorial, reset counts and move to the first game location
         currentWorld = 1;
         currentLevelInWorld = 0;
         MoveToNextLocation();
     }
 
-    // --- ELEVATOR SEQUENCE ---
     public void StartElevatorSequence(float animationDuration)
     {
         StartCoroutine(ElevatorToFadeSequence(animationDuration));
@@ -81,7 +73,6 @@ public class GameSceneManager : MonoBehaviour
             yield return null;
         }
 
-        // Check if we are exiting the tutorial
         if (SceneManager.GetActiveScene().name == tutorialSceneName)
         {
             FinishTutorial();
@@ -92,6 +83,9 @@ public class GameSceneManager : MonoBehaviour
         }
 
         yield return new WaitForSeconds(0.3f);
+
+        // --- NEW: LOCK PLAYER CHECK ---
+        HandlePlayerLockState();
 
         while (fadeCanvasGroup.alpha > 0)
         {
@@ -112,6 +106,46 @@ public class GameSceneManager : MonoBehaviour
         }
     }
 
+    // --- NEW: PLAYER LOCKING LOGIC ---
+    private void HandlePlayerLockState()
+    {
+        GameObject player = GameObject.FindWithTag("Player");
+        if (player == null) return;
+
+        // Reset position based on scene
+        if (SceneManager.GetActiveScene().name == shopSceneName)
+        {
+            player.transform.position = new Vector2(0, 100);
+            
+            // LOCK: Disable movement script (replace 'PlayerController' with your script name)
+            if (player.GetComponent<MonoBehaviour>() != null) 
+            {
+                // Disable whatever script handles your WASD/Joystick movement
+                var moveScript = player.GetComponent<PlayerController>(); 
+                if (moveScript != null) moveScript.enabled = false;
+            }
+
+            // OPTIONAL LOCK: Stop all physics movement
+            var rb = player.GetComponent<Rigidbody2D>();
+            if (rb != null) 
+            {
+                rb.linearVelocity = Vector2.zero;
+                rb.bodyType = RigidbodyType2D.Static; // This makes them unmovable
+            }
+        }
+        else
+        {
+            // UNLOCK for normal levels
+            player.transform.position = new Vector2(0, 0);
+            
+            var moveScript = player.GetComponent<PlayerController>();
+            if (moveScript != null) moveScript.enabled = true;
+
+            var rb = player.GetComponent<Rigidbody2D>();
+            if (rb != null) rb.bodyType = RigidbodyType2D.Dynamic; // Back to normal physics
+        }
+    }
+
     public void LoadNextLevel()
     {
         currentLevelInWorld++;
@@ -129,11 +163,5 @@ public class GameSceneManager : MonoBehaviour
         {
             SceneManager.LoadScene("World" + currentWorld + "_Level" + currentLevelInWorld);
         }
-    }
-
-    // For testing: Call this to force the tutorial to play again
-    public void ResetTutorialSave()
-    {
-        PlayerPrefs.DeleteKey("TutorialDone");
     }
 }
