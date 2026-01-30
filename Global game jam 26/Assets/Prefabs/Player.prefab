@@ -528,6 +528,7 @@ MonoBehaviour:
   UpgradeAmountRacingMaskSpeedX: 1.4
   JumpHighedForCheeseX: 1.2
   SpeedIncreaseForCheeseX: 1.4
+  SpaceMaskDecreaseGravity: 1.2
   isGrounded: 0
   isFacingRight: 0
 --- !u!114 &8170129529710086964
