@@ -14,9 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Mask
   rarity: 1
   maskName: Slice of Emmental
-  description: In CHEESE WORLDS increase movement speed and jump height. 1/4 chance
-    to create a random mask when exiting cheese world room. Disables when not in
-    cheese world.
+  description: In CHEESE WORLDS increase movement speed and jump height. Disables
+    when not in cheese world.
   sprite: {fileID: 21300000, guid: 632490af352c387479f96900cf2c3ced, type: 3}
   material: {fileID: 2100000, guid: 4ae8c9e8296ef924baee995479ba9323, type: 2}
   id: 5

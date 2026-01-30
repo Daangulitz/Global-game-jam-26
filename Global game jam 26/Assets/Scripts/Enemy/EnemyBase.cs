@@ -15,10 +15,16 @@ public class EnemyBase : MonoBehaviour
     private PlayerHealth ph;
     private GameManager gm;
     private IAstarAI ai;
+    [SerializeField] private EnemyTakeDamage _enemyTakeDamageNormal;
+    [SerializeField] private EnemyTakeDamage _enemyTakeDamagehorn;
+    
     
     private bool MaxSpeedIsSet = false;
     private bool MaxRangeIsSetForComedy = false;
     private bool MaxRangeIsSetForBlueSpirit = false;
+
+    [SerializeField] private GameObject NormaleAttack;
+    [SerializeField] private GameObject HornAttackPos;
 
     void Start()
     {
@@ -63,6 +69,17 @@ public class EnemyBase : MonoBehaviour
             detectionRange = detectionRange / DetectionRangeDelenDoor;
             MaxRangeIsSetForBlueSpirit = true;
         }
+
+        if (gm.masks.Any(m => m.id == 4))
+        {
+            HornAttackPos.SetActive(true);
+            NormaleAttack.SetActive(false);
+        }
+        else
+        {
+            HornAttackPos.SetActive(false);
+            NormaleAttack.SetActive(true);
+        }
     }
 
     bool HasLineOfSight()
@@ -81,7 +98,10 @@ public class EnemyBase : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            ph.TakeDamage();
+            if (!_enemyTakeDamagehorn.DealDamage || !_enemyTakeDamageNormal.DealDamage)
+            {
+                ph.TakeDamage();
+            }
         }
     }
 
