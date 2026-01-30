@@ -17,4 +17,5 @@ MonoBehaviour:
   description: In SPACE WORLDS reduce gravity. Disables when not in space world
   sprite: {fileID: 21300000, guid: c5dac6522ace1274ba6b1d06b0e49559, type: 3}
   material: {fileID: 2100000, guid: 71d57d5d843846444b1ac5b8e5148e04, type: 2}
+  hotseatMaterial: {fileID: 2100000, guid: 8f81ed77808249f43bbb5fac099aa9ac, type: 2}
   id: 6

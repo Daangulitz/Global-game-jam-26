@@ -17,4 +17,5 @@ MonoBehaviour:
   description: 1/2 chance to not break when hit
   sprite: {fileID: 21300000, guid: d4a8107a8b834684e903219e306ddcff, type: 3}
   material: {fileID: 2100000, guid: 143534026d36f0f4c8398e601851820f, type: 2}
+  hotseatMaterial: {fileID: 2100000, guid: 4bf163cbec46f754c83a99a612fa428d, type: 2}
   id: 7

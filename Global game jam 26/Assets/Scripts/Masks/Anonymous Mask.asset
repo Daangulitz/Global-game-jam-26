@@ -17,4 +17,5 @@ MonoBehaviour:
   description: Get 2 masks next mask shop, destroy this mask
   sprite: {fileID: 21300000, guid: 08cb827e37fffe34e9924a15d35ba825, type: 3}
   material: {fileID: 2100000, guid: de6c0d695d6f0954a871e83f5d9d97d4, type: 2}
+  hotseatMaterial: {fileID: 2100000, guid: 1881169afc6125542a9fdce1f92bb537, type: 2}
   id: 0
