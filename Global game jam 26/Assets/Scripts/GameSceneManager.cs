@@ -7,11 +7,12 @@ public class GameSceneManager : MonoBehaviour
 
     [Header("Progression Tracking")]
     public int currentWorld = 1;
-    public int currentLevelInWorld = 1;
+    public int currentLevelInWorld = 0; // Started at 0 to handle first shop properly
     public int levelsBeforeShop = 3;
     public int maxWorlds = 3;
 
     [Header("Scene Names")]
+    public string tutorialSceneName = "Tutorial";
     public string shopSceneName = "ShopScene";
     public string mainMenuSceneName = "MainMenu";
 
@@ -27,11 +28,39 @@ public class GameSceneManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    // Call this whenever the player finishes a level
+    // Call this to start the game from a menu button
+    public void StartGame()
+    {
+        // Check if tutorial was ever finished
+        if (PlayerPrefs.GetInt("TutorialDone", 0) == 0)
+        {
+            SceneManager.LoadScene("Tutorial");
+        }
+        else
+        {
+            // If tutorial is done, go straight to the first Shop
+            currentWorld = 1;
+            currentLevelInWorld = 0;
+            LoadShop();
+        }
+    }
+
+    // Call this specifically at the end of the Tutorial level
+    public void FinishTutorial()
+    {
+        PlayerPrefs.SetInt("TutorialDone", 1);
+        PlayerPrefs.Save();
+        
+        // After tutorial, always go to Shop first
+        currentWorld = 1;
+        currentLevelInWorld = 0;
+        LoadShop();
+    }
+
     public void MoveToNextLocation()
     {
-        // Check if it's time for a shop
-        if (currentLevelInWorld % levelsBeforeShop == 0)
+        // If we are currently in a level, check if we hit the shop interval
+        if (currentLevelInWorld > 0 && currentLevelInWorld % levelsBeforeShop == 0)
         {
             LoadShop();
         }
@@ -45,7 +74,8 @@ public class GameSceneManager : MonoBehaviour
     {
         currentLevelInWorld++;
         
-        if (currentLevelInWorld > 2) 
+        // Your logic for 2 levels per world
+        if (currentLevelInWorld > 3) 
         {
             currentWorld++;
             currentLevelInWorld = 1;
@@ -67,9 +97,14 @@ public class GameSceneManager : MonoBehaviour
         SceneManager.LoadScene(shopSceneName);
     }
 
-    // Call this from a "Continue" button inside the Shop scene
     public void ExitShop()
     {
         LoadNextLevel();
+    }
+
+    // Optional: Call this if you want to force the tutorial to play again (for testing)
+    public void ResetTutorialStatus()
+    {
+        PlayerPrefs.SetInt("TutorialDone", 0);
     }
 }
