@@ -13,7 +13,7 @@ public class EnemyTakeDamage : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player") && Player.isGrounded == false) 
+        if (other.gameObject.CompareTag("Player")) 
         {
             Die();
         }

@@ -20,6 +20,9 @@ public class EnemyBase : MonoBehaviour
     private bool MaxRangeIsSetForComedy = false;
     private bool MaxRangeIsSetForBlueSpirit = false;
 
+    [SerializeField] private GameObject NormaleAttack;
+    [SerializeField] private GameObject HornAttackPos;
+
     void Start()
     {
         ai = GetComponent<IAstarAI>();
@@ -62,6 +65,17 @@ public class EnemyBase : MonoBehaviour
         {
             detectionRange = detectionRange / DetectionRangeDelenDoor;
             MaxRangeIsSetForBlueSpirit = true;
+        }
+
+        if (gm.masks.Any(m => m.id == 4))
+        {
+            HornAttackPos.SetActive(true);
+            NormaleAttack.SetActive(false);
+        }
+        else
+        {
+            HornAttackPos.SetActive(false);
+            NormaleAttack.SetActive(true);
         }
     }
 

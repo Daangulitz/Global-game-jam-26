@@ -35,15 +35,30 @@ public class Shop : MonoBehaviour
 
     private void Update()
     {
+        // Keep your 'R' shortcut for testing
         if (Input.GetKeyDown(KeyCode.R))
         {
+            RerollShop();
+        }
+    }
+
+    // --- NEW REROLL BUTTON METHOD ---
+    public void RerollShop()
+    {
+        // Only allow reroll if the player hasn't already picked a mask 
+        // to sacrifice (checked by seeing if all visuals are still active)
+        if (visual1.gameObject.activeSelf && visual2.gameObject.activeSelf && visual3.gameObject.activeSelf)
+        {
             LoadNewShop();
+        }
+        else
+        {
+            Debug.Log("Cannot reroll after selecting a sacrifice!");
         }
     }
 
     public void LoadNewShop()
     {
-        // Fix: Put masks back and CLEAR before loading new ones
         foreach (Mask mask in masksThisShop)
         {
             if (mask.rarity == Rarity.Special) specialMaskPrefabs.Add(mask);
@@ -155,16 +170,13 @@ public class Shop : MonoBehaviour
 
     private void RemoveSpecificMask(int idToRemove)
     {
-        // Use a list to find the item
         List<Mask> temp = gm.masks.ToList();
-        // Remove only the first instance of ID 0 found
         Mask toRemove = temp.FirstOrDefault(m => m.id == idToRemove);
         
         if (toRemove != null)
         {
             temp.Remove(toRemove);
             gm.masks.Clear();
-            // Re-stack items in correct order
             temp.Reverse();
             foreach (var m in temp)
             {
