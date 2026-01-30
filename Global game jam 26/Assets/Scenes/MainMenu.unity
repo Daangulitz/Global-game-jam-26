@@ -915,12 +915,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameSceneManager
   currentWorld: 1
-  currentLevelInWorld: 0
+  currentLevelInWorld: 1
   levelsBeforeShop: 2
   maxWorlds: 2
-  tutorialSceneName: Tutorial
+  tutorialSceneName: World1_Level1
   shopSceneName: Shop
   mainMenuSceneName: MainMenu
+  fadeCanvasGroup: {fileID: 0}
+  fadeSpeed: 2
 --- !u!4 &482267795
 Transform:
   m_ObjectHideFlags: 0

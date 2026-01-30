@@ -9,33 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: e2e89fa3e5394dd4692ac878046023b8
   - enabled: 1
-    path: Assets/Scenes/Settings.unity
-    guid: d5bf2d17e7775d34e84bf80b6b645b52
-  - enabled: 1
-    path: Assets/Scenes/Shop.unity
-    guid: 51bae83893d64d74788c1d9f76fd01b7
-  - enabled: 1
-    path: Assets/Scenes/Levels/Space/World3_Level2.unity
-    guid: 4879e19a88bf49f4895e35c35a11b8e9
-  - enabled: 1
-    path: Assets/Scenes/Levels/Space/World3_Level3.unity
-    guid: addc45719d5ad8c46a955492d4b3a86c
-  - enabled: 1
-    path: Assets/Scenes/Fien.unity
-    guid: 3abf19995b628dc478e5d446ea2ca77e
-  - enabled: 0
-    path: Assets/Scenes/World1_Level1.unity
-    guid: 433c86802460be041bcbbd7a88b5428f
-  - enabled: 0
-    path: Assets/Scenes/World1_Level1.unity
-    guid: a4b5d68d48fed364c8d038c37bc3fcc4
-  - enabled: 1
-    path: Assets/Scenes/Levels/Test/1.unity
-    guid: 3f90db05232d1b74e85e0d97f43fe7c3
-  - enabled: 0
-    path: Assets/Scenes/World1_Level1.unity
-    guid: a4b5d68d48fed364c8d038c37bc3fcc4
-  - enabled: 1
     path: Assets/Scenes/Levels/Kaas/World2_Level1.unity
     guid: 478e0d8d44ff4e441b823f4428d69ed9
   - enabled: 1
@@ -45,8 +18,32 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Kaas/World2_Level3.unity
     guid: 539444e3ae517cf46804ae7bac9f9dc5
   - enabled: 1
-    path: Assets/Scenes/Tutorial.unity
-    guid: 9b37e8727a9c36a40bf5a80dbd99cfe6
+    path: Assets/Scenes/Levels/Space/World3_Level 1.unity
+    guid: 8f7160a8e6644a542b53e9c159d3873f
+  - enabled: 1
+    path: Assets/Scenes/Levels/Space/World3_Level2.unity
+    guid: 4879e19a88bf49f4895e35c35a11b8e9
+  - enabled: 1
+    path: Assets/Scenes/Levels/Space/World3_Level3.unity
+    guid: addc45719d5ad8c46a955492d4b3a86c
+  - enabled: 1
+    path: Assets/Scenes/World1_Level1.unity
+    guid: 66ee523404c45f445b99d2b4ec2e9269
+  - enabled: 1
+    path: Assets/Scenes/World1_Level2.unity
+    guid: ae693377eeccab547a6986f95fd7f33d
+  - enabled: 1
+    path: Assets/Scenes/World1_Level3.unity
+    guid: 95ae2637d72f831479b4c64bfbac867c
+  - enabled: 1
+    path: Assets/Scenes/World1_Level4.unity
+    guid: dd40e9f9d9a43744ca74258d2820cc37
+  - enabled: 1
+    path: Assets/Scenes/Shop.unity
+    guid: 51bae83893d64d74788c1d9f76fd01b7
+  - enabled: 1
+    path: Assets/Scenes/Settings.unity
+    guid: d5bf2d17e7775d34e84bf80b6b645b52
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
