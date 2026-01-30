@@ -7,7 +7,8 @@ public class LayoutGroup : MonoBehaviour
     [SerializeField] private RawImage hotseat;
     [SerializeField] private GameObject maskPrefab;
     private GridLayoutGroup glg;
-    private Stack<Mask> masks = new();
+    private Stack<Mask> otherMasks = new();
+    private Mask hotSeatMask;
 
     GameManager gm;
 
@@ -44,31 +45,45 @@ public class LayoutGroup : MonoBehaviour
     {
         glg = GetComponent<GridLayoutGroup>();
         gm = FindObjectOfType<GameManager>();
-        masks = gm.masks;
+        otherMasks = gm.masks;
     }
 
 
     private void Update()
     {
-        if (masks != gm.masks)
+
+
+
+        if (otherMasks.Count != gm.masks.Count - 1 && otherMasks.Count != 0)
         {
-            masks = gm.masks;
-            var top = masks.Peek();
-            if (top != null)
+
+            otherMasks = gm.masks;
+            var top = gm.masks.Peek();
+            if (otherMasks.Count > gm.masks.Count)
+            {
+                otherMasks.Push(hotSeatMask);
+                hotSeatMask = null;
+
+            }
+            if (top != null && hotSeatMask == null)
             {
                 hotseat.texture = top.sprite != null ? top.sprite.texture : null;
                 hotseat.material = top.hotseatMaterial;
+                hotSeatMask = top;
+                otherMasks.Pop();
             }
         }
-
+        if (otherMasks.Count == 0)
+        {
+            return;
+        }
         // Clear existing instantiated visuals so we don't accumulate duplicates.
         for (int i = transform.childCount - 1; i >= 0; i--)
         {
                 Destroy(transform.GetChild(i).gameObject);
         }
-
         int maskAmount = 0;
-        foreach (var mask in masks)
+        foreach (var mask in otherMasks)
         {
             GameObject maskVisual = Instantiate(maskPrefab, Vector3.zero, Quaternion.identity);
             maskVisual.transform.SetParent(transform, false);

@@ -696,6 +696,7 @@ MonoBehaviour:
   currentLevelInWorld: 0
   levelsBeforeShop: 2
   maxWorlds: 2
+  tutorialSceneName: Tutorial
   shopSceneName: Shop
   mainMenuSceneName: MainMenu
 --- !u!4 &482267795

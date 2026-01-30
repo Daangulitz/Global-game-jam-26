@@ -1,11 +1,14 @@
 using System;
 using UnityEngine;
+using System.Collections;
 
 public class EnemyTakeDamage : MonoBehaviour
 {
     private PlayerController Player;
     [SerializeField] private GameObject DS;
     public bool DealDamage;
+    [SerializeField]private Animator anim;
+    private float TimeUntilDeath = 1f;
     
     private void Start()
     {
@@ -17,13 +20,16 @@ public class EnemyTakeDamage : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player")) 
         {
+            anim.SetTrigger("IsDead");
             DealDamage = true;
-            Die();
+            StartCoroutine(Die());
         }
     }
     
-    public void Die()
+    public IEnumerator Die()
     {
+        WaitForSeconds wait = new WaitForSeconds(TimeUntilDeath);
+        yield return wait;
         Destroy(DS);
     }
 }
