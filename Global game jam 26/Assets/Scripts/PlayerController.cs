@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -45,6 +46,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float BlueSpiritMaskJumpUpgradeX;
     [SerializeField] private float TimeUntilRacingMaskBreaks;
     [SerializeField] private float UpgradeAmountRacingMaskSpeedX;
+    [SerializeField] private float JumpHighedForCheeseX;
+    [SerializeField] private float SpeedIncreaseForCheeseX;
+    [SerializeField] private float SpaceMaskDecreaseGravity;
+    
 
     private Rigidbody2D rb;
     private float steerInput;
@@ -56,10 +61,16 @@ public class PlayerController : MonoBehaviour
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
     private GameManager gm;
+    private BoxCollider2D attackHitbox;
+    private GameSceneManager gsm;
 
     private int jumpsRemaining;
     private bool BlueSpiritMaskActive;
     private bool RacingMaskActive;
+    private bool AttackActive;
+    private bool CheeseActivation;
+    private bool SpaceMaskActivation;
+    
 
     private void OnEnable()
     {
@@ -89,14 +100,16 @@ public class PlayerController : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        attackHitbox = GetComponentInChildren<BoxCollider2D>();
         gm = FindObjectOfType<GameManager>();
+        gsm = FindObjectOfType<GameSceneManager>();
     }
 
     private void Update()
     {
         steerInput = moveAction.action.ReadValue<Vector2>().x;
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayer);
-        
+        _animator.SetFloat("yVelocity", rb.linearVelocityY);
         // Reset jumps and handle mask logic when grounded
         if (isGrounded && rb.linearVelocity.y <= 0.1f)
         {
@@ -118,16 +131,54 @@ public class PlayerController : MonoBehaviour
         if (rb.linearVelocity.magnitude > maxSpeed)
             rb.linearVelocity = Vector3.ClampMagnitude(rb.linearVelocity, maxSpeed);
         
+        // BlueSpirit Mask
         if (gm.masks.Any(m => m.id == 1) && !BlueSpiritMaskActive)
         {
             jumpForce = jumpForce * BlueSpiritMaskJumpUpgradeX;
             BlueSpiritMaskActive = true;
         }
 
+        //RaceMask
         if (gm.masks.Any(m => m.id == 3) && !RacingMaskActive)
         {
             constantForwardSpeed = constantForwardSpeed * UpgradeAmountRacingMaskSpeedX;
             RacingMaskActive = true;
+        }
+
+        //Cheese Mask
+        if (gm.masks.Any(m => m.id == 5) && gsm.currentWorld == 2)
+        {
+            if (!CheeseActivation)
+            {
+                constantForwardSpeed = constantForwardSpeed * SpeedIncreaseForCheeseX;
+                jumpForce = jumpForce * JumpHighedForCheeseX;
+                CheeseActivation = true;
+            }
+        } else if (gm.masks.Any(m => m.id == 5) && gsm.currentWorld != 2)
+        {
+            if (CheeseActivation)
+            {
+                constantForwardSpeed = constantForwardSpeed / SpeedIncreaseForCheeseX;
+                jumpForce = jumpForce / JumpHighedForCheeseX;
+                CheeseActivation = false;
+            }
+        }
+
+        // SpaceMask
+        if (gm.masks.Any(m => m.id == 6) && gsm.currentWorld == 3)
+        {
+            if (!SpaceMaskActivation)
+            {
+                rb.gravityScale = rb.gravityScale / SpaceMaskDecreaseGravity;
+                SpaceMaskActivation = true;
+            }
+        } else if (gm.masks.Any(m => m.id == 6) && gsm.currentWorld != 3)
+        {
+            if (SpaceMaskActivation)
+            {
+                rb.gravityScale = rb.gravityScale * SpaceMaskDecreaseGravity;
+                SpaceMaskActivation = false;
+            }
         }
 
         if (steerInput == 0)
@@ -141,6 +192,26 @@ public class PlayerController : MonoBehaviour
         } else if (steerInput != 0)
         {
             timeUntilRacingMaskBreaks = 0f;
+        }
+
+
+
+        if (AttackActive)
+        {
+            //attackHitbox.enabled = true;
+            if (isFacingRight)
+            {
+                attackHitbox.gameObject.transform.localPosition = new Vector3(10,0,0);
+            }
+            else
+            {
+                attackHitbox.gameObject.transform.localPosition = new Vector3(-10, 0, 0);
+            }
+        }
+        else
+        {
+           // attackHitbox.enabled = false;
+            attackHitbox.gameObject.transform.localPosition = new Vector3(0, 0, 0);
         }
     }
 
@@ -187,7 +258,16 @@ public class PlayerController : MonoBehaviour
     private void OnAttack(InputAction.CallbackContext context)
     {
         //start attack animation
+        if (!AttackActive)
+            StartCoroutine(Slash());
+    }
 
+
+    private IEnumerator Slash()
+    {
+        AttackActive = true;
+        yield return new WaitForSeconds(0.5f);
+        AttackActive = false;
     }
 
     private void OnDrawGizmos()

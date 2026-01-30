@@ -15,7 +15,13 @@ public class EnemyTakeDamage : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") && Player.isGrounded == false) 
         {
-            Destroy(DS);
+            Die();
         }
+    }
+
+
+    public void Die()
+    {
+        Destroy(DS);
     }
 }
