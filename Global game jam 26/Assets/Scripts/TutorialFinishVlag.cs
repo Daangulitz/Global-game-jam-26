@@ -16,8 +16,8 @@ public class TutorialFinishVlag : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             player.transform.position = new Vector2(0,0);
-            gsm.FinishTutorial();
-            Debug.Log(player.transform.position);
+            gsm.LoadNextLevel();
+            
         }
     }
 }

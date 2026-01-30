@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections;
 
 public class GameSceneManager : MonoBehaviour
 {
@@ -8,7 +7,7 @@ public class GameSceneManager : MonoBehaviour
 
     [Header("Progression Tracking")]
     public int currentWorld = 1;
-    public int currentLevelInWorld = 0; 
+    public int currentLevelInWorld = 1; 
     public int levelsBeforeShop = 3;
     public int maxWorlds = 3;
 
@@ -17,10 +16,6 @@ public class GameSceneManager : MonoBehaviour
     public string shopSceneName = "ShopScene";
     public string mainMenuSceneName = "MainMenu";
 
-    [Header("Fade Settings")]
-    [SerializeField] private CanvasGroup fadeCanvasGroup; 
-    [SerializeField] private float fadeSpeed = 2f;
-
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -28,21 +23,11 @@ public class GameSceneManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
         Instance = this;
         DontDestroyOnLoad(gameObject);
-        
-        if(fadeCanvasGroup != null) fadeCanvasGroup.alpha = 0;
     }
 
-    private void OnEnable() => SceneManager.sceneLoaded += OnLevelFinishedLoading;
-    private void OnDisable() => SceneManager.sceneLoaded -= OnLevelFinishedLoading;
-
-    private void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
-    {
-        HandlePlayerLockState();
-    }
-
+    // Call this from the Main Menu Button
     public void StartGame()
     {
         if (PlayerPrefs.GetInt("TutorialDone", 0) == 0)
@@ -52,60 +37,44 @@ public class GameSceneManager : MonoBehaviour
         else
         {
             currentWorld = 1;
-            currentLevelInWorld = 0;
-            MoveToNextLocation();
+            currentLevelInWorld = 1;
+            SceneManager.LoadScene("World1_Level1");
         }
     }
 
-    public void FinishTutorial()
+    // --- CALLED BY ELEVATOR TRIGGER ---
+    public void StartElevatorSequence(float dummy) 
     {
-        PlayerPrefs.SetInt("TutorialDone", 1);
-        PlayerPrefs.Save();
-        
-        // After Tutorial -> GO TO SHOP
-        currentWorld = 1;
-        currentLevelInWorld = 0; 
-        SceneManager.LoadScene(shopSceneName);
-    }
+        string currentScene = SceneManager.GetActiveScene().name;
 
-    public void StartElevatorSequence(float animationDuration)
-    {
-        StartCoroutine(ElevatorToFadeSequence(animationDuration));
-    }
-
-    private IEnumerator ElevatorToFadeSequence(float waitTime)
-    {
-        yield return new WaitForSeconds(waitTime);
-
-        while (fadeCanvasGroup.alpha < 1)
+        // 1. If we are in the Tutorial, go to the SHOP
+        if (currentScene == tutorialSceneName)
         {
-            fadeCanvasGroup.alpha += Time.deltaTime * fadeSpeed;
-            yield return null;
+            PlayerPrefs.SetInt("TutorialDone", 1);
+            PlayerPrefs.Save(); // Force the save immediately
+            
+            currentWorld = 1;
+            currentLevelInWorld = 0; // Set to 0 so LoadNextLevel makes it 1
+            SceneManager.LoadScene(shopSceneName);
         }
-
-        // Logic for Tutorial exit
-        if (SceneManager.GetActiveScene().name == tutorialSceneName)
+        // 2. If we are in the Shop, go to WORLD 1 LEVEL 1
+        else if (currentScene == shopSceneName)
         {
-            FinishTutorial();
+            currentWorld = 1;
+            currentLevelInWorld = 1;
+            SceneManager.LoadScene("World1_Level1");
         }
+        // 3. Otherwise, use normal level progression
         else
         {
             MoveToNextLocation();
-        }
-
-        yield return new WaitForSeconds(0.3f);
-        HandlePlayerLockState();
-
-        while (fadeCanvasGroup.alpha > 0)
-        {
-            fadeCanvasGroup.alpha -= Time.deltaTime * fadeSpeed;
-            yield return null;
         }
     }
 
     public void MoveToNextLocation()
     {
-        if (currentLevelInWorld > 0 && currentLevelInWorld % levelsBeforeShop == 0)
+        // Go to shop every X levels
+        if (currentLevelInWorld % levelsBeforeShop == 0)
         {
             SceneManager.LoadScene(shopSceneName);
         }
@@ -115,40 +84,11 @@ public class GameSceneManager : MonoBehaviour
         }
     }
 
-    private void HandlePlayerLockState()
-    {
-        GameObject player = GameObject.FindWithTag("Player");
-        if (player == null) return;
-
-        Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
-        // Change "PlayerController" to the exact name of your movement script
-        MonoBehaviour moveScript = player.GetComponent("PlayerController") as MonoBehaviour;
-
-        if (SceneManager.GetActiveScene().name == shopSceneName)
-        {
-            // Lock Player
-            player.transform.position = new Vector2(0, 100);
-            if (rb != null) 
-            {
-                rb.linearVelocity = Vector2.zero;
-                rb.bodyType = RigidbodyType2D.Static;
-            }
-            if (moveScript != null) moveScript.enabled = false;
-        }
-        else if (SceneManager.GetActiveScene().name != mainMenuSceneName)
-        {
-            // Unlock Player
-            if (player.transform.position.y == 100) player.transform.position = Vector2.zero;
-            
-            if (rb != null) rb.bodyType = RigidbodyType2D.Dynamic;
-            if (moveScript != null) moveScript.enabled = true;
-        }
-    }
-
     public void LoadNextLevel()
     {
         currentLevelInWorld++;
-        if (currentLevelInWorld > 2) 
+        
+        if (currentLevelInWorld > 6) 
         {
             currentWorld++;
             currentLevelInWorld = 1;

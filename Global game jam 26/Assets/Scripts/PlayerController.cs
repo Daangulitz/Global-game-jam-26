@@ -50,6 +50,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float SpeedIncreaseForCheeseX;
     [SerializeField] private float SpaceMaskDecreaseGravity;
     
+    [Header("Sounds")]
+    [SerializeField] private AudioClip JumpSound;
+    [SerializeField] private AudioClip MovementSound;
+    [SerializeField] private AudioSource _source;
+    
 
     private Rigidbody2D rb;
     private float steerInput;
@@ -74,6 +79,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnEnable()
     {
+        //
         if (moveAction != null) moveAction.action.Enable();
         if (jumpAction != null) 
         {
@@ -103,6 +109,7 @@ public class PlayerController : MonoBehaviour
         attackHitbox = GetComponentInChildren<BoxCollider2D>();
         gm = FindObjectOfType<GameManager>();
         gsm = FindObjectOfType<GameSceneManager>();
+        _source = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -222,6 +229,8 @@ public class PlayerController : MonoBehaviour
         {
             _animator.SetFloat("Speed", 1f);
             rb.AddForce(Vector3.right * steerInput * constantForwardSpeed);
+            _source.clip = MovementSound;
+            _source.Play();
         }
         else
         {
@@ -250,6 +259,9 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
             
             jumpsRemaining--;
+
+            _source.clip = JumpSound;
+            _source.Play();
             
             _animator.SetTrigger("Jump");
         }

@@ -10,6 +10,8 @@ public class EnemyTakeDamage : MonoBehaviour
     [SerializeField]private Animator anim;
     private float TimeUntilDeath = 1f;
     private Animator animator;
+    [SerializeField] private AudioClip DeathSound;
+    [SerializeField] private AudioSource DamageSound;
     
     private void Start()
     {
@@ -26,7 +28,7 @@ public class EnemyTakeDamage : MonoBehaviour
             {
                 anim.SetTrigger("IsDead");
             }
-
+            DamageSound.PlayOneShot(DeathSound);
             DealDamage = true;
             StartCoroutine(Die());
         }
