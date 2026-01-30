@@ -46,6 +46,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float BlueSpiritMaskJumpUpgradeX;
     [SerializeField] private float TimeUntilRacingMaskBreaks;
     [SerializeField] private float UpgradeAmountRacingMaskSpeedX;
+    [SerializeField] private float JumpHighedForCheeseX;
+    [SerializeField] private float SpeedIncreaseForCheeseX;
+    [SerializeField] private float SpaceMaskDecreaseGravity;
+    
 
     private Rigidbody2D rb;
     private float steerInput;
@@ -58,11 +62,15 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private GameManager gm;
     private BoxCollider2D attackHitbox;
+    private GameSceneManager gsm;
 
     private int jumpsRemaining;
     private bool BlueSpiritMaskActive;
     private bool RacingMaskActive;
     private bool AttackActive;
+    private bool CheeseActivation;
+    private bool SpaceMaskActivation;
+    
 
     private void OnEnable()
     {
@@ -94,6 +102,7 @@ public class PlayerController : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
         attackHitbox = GetComponentInChildren<BoxCollider2D>();
         gm = FindObjectOfType<GameManager>();
+        gsm = FindObjectOfType<GameSceneManager>();
     }
 
     private void Update()
@@ -122,16 +131,54 @@ public class PlayerController : MonoBehaviour
         if (rb.linearVelocity.magnitude > maxSpeed)
             rb.linearVelocity = Vector3.ClampMagnitude(rb.linearVelocity, maxSpeed);
         
+        // BlueSpirit Mask
         if (gm.masks.Any(m => m.id == 1) && !BlueSpiritMaskActive)
         {
             jumpForce = jumpForce * BlueSpiritMaskJumpUpgradeX;
             BlueSpiritMaskActive = true;
         }
 
+        //RaceMask
         if (gm.masks.Any(m => m.id == 3) && !RacingMaskActive)
         {
             constantForwardSpeed = constantForwardSpeed * UpgradeAmountRacingMaskSpeedX;
             RacingMaskActive = true;
+        }
+
+        //Cheese Mask
+        if (gm.masks.Any(m => m.id == 5) && gsm.currentWorld == 2)
+        {
+            if (!CheeseActivation)
+            {
+                constantForwardSpeed = constantForwardSpeed * SpeedIncreaseForCheeseX;
+                jumpForce = jumpForce * JumpHighedForCheeseX;
+                CheeseActivation = true;
+            }
+        } else if (gm.masks.Any(m => m.id == 5) && gsm.currentWorld != 2)
+        {
+            if (CheeseActivation)
+            {
+                constantForwardSpeed = constantForwardSpeed / SpeedIncreaseForCheeseX;
+                jumpForce = jumpForce / JumpHighedForCheeseX;
+                CheeseActivation = false;
+            }
+        }
+
+        // SpaceMask
+        if (gm.masks.Any(m => m.id == 6) && gsm.currentWorld == 3)
+        {
+            if (!SpaceMaskActivation)
+            {
+                rb.gravityScale = rb.gravityScale / SpaceMaskDecreaseGravity;
+                SpaceMaskActivation = true;
+            }
+        } else if (gm.masks.Any(m => m.id == 6) && gsm.currentWorld != 3)
+        {
+            if (SpaceMaskActivation)
+            {
+                rb.gravityScale = rb.gravityScale * SpaceMaskDecreaseGravity;
+                SpaceMaskActivation = false;
+            }
         }
 
         if (steerInput == 0)

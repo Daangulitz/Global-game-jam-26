@@ -45,7 +45,7 @@ public class GameSceneManager : MonoBehaviour
     {
         currentLevelInWorld++;
         
-        if (currentLevelInWorld > 9) 
+        if (currentLevelInWorld > 2) 
         {
             currentWorld++;
             currentLevelInWorld = 1;
