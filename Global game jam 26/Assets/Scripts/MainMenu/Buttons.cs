@@ -4,15 +4,17 @@ using UnityEngine.SceneManagement;
 public class Buttons : MonoBehaviour
 {
     private GameManager gameManager;
+    private GameSceneManager gsm;
     
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
+        gsm = FindObjectOfType<GameSceneManager>();
     }
     
     public void StartGame()
     {
-        SceneManager.LoadScene("Shop");
+        gsm.StartGame();
     }
 
     public void Settings()

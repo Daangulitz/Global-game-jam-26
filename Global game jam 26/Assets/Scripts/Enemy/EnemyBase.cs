@@ -15,6 +15,7 @@ public class EnemyBase : MonoBehaviour
     private PlayerHealth ph;
     private GameManager gm;
     private IAstarAI ai;
+    private Animator anim;
     [SerializeField] private EnemyTakeDamage _enemyTakeDamageNormal;
     [SerializeField] private EnemyTakeDamage _enemyTakeDamagehorn;
     
@@ -32,6 +33,7 @@ public class EnemyBase : MonoBehaviour
         player = GameObject.FindWithTag("Player").transform;
         ph = FindObjectOfType<PlayerHealth>();
         gm = FindObjectOfType<GameManager>();
+        anim = GetComponent<Animator>();
     }
 
     void FixedUpdate()
@@ -46,10 +48,12 @@ public class EnemyBase : MonoBehaviour
             // Follow player: Update the destination and resume moving
             ai.destination = player.position;
             ai.isStopped = false;
+            anim.SetBool("SeeingPlayer", true);
         }
         else
         {
             ai.isStopped = true;
+            anim.SetBool("SeeingPlayer", false);
         }
 
         if (!MaxSpeedIsSet && gm.masks.Any(m => m.id == 8))
