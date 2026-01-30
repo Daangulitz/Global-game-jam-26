@@ -680,8 +680,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameSceneManager
   currentWorld: 1
   currentLevelInWorld: 0
-  levelsBeforeShop: 3
-  maxWorlds: 3
+  levelsBeforeShop: 2
+  maxWorlds: 2
   shopSceneName: Shop
   mainMenuSceneName: MainMenu
 --- !u!4 &482267795
