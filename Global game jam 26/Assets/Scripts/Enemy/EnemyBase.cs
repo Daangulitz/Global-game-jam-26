@@ -15,6 +15,9 @@ public class EnemyBase : MonoBehaviour
     private PlayerHealth ph;
     private GameManager gm;
     private IAstarAI ai;
+    [SerializeField] private EnemyTakeDamage _enemyTakeDamageNormal;
+    [SerializeField] private EnemyTakeDamage _enemyTakeDamagehorn;
+    
     
     private bool MaxSpeedIsSet = false;
     private bool MaxRangeIsSetForComedy = false;
@@ -95,7 +98,10 @@ public class EnemyBase : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            ph.TakeDamage();
+            if (!_enemyTakeDamagehorn.DealDamage || !_enemyTakeDamageNormal.DealDamage)
+            {
+                ph.TakeDamage();
+            }
         }
     }
 

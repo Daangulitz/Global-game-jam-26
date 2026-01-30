@@ -85,6 +85,8 @@ MonoBehaviour:
     m_Bits: 64
   MaxSpeedDelenDoor: 1.5
   DetectionRangeDelenDoor: 1.3
+  _enemyTakeDamageNormal: {fileID: 3897046122524533757}
+  _enemyTakeDamagehorn: {fileID: 2652512798669903097}
   NormaleAttack: {fileID: 8630737417538517077}
   HornAttackPos: {fileID: 5978764722131935193}
 --- !u!114 &3660238371449438400
@@ -320,6 +322,7 @@ GameObject:
   - component: {fileID: 7849173458335293245}
   - component: {fileID: 6724380127822123641}
   - component: {fileID: 2652512798669903097}
+  - component: {fileID: 1308003530745264099}
   m_Layer: 7
   m_Name: EnemyAttackSide
   m_TagString: Untagged
@@ -447,6 +450,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyTakeDamage
   DS: {fileID: 112764222622134458}
+  DealDamage: 0
+--- !u!50 &1308003530745264099
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5978764722131935193}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDamping: 0
+  m_AngularDamping: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &8630737417538517077
 GameObject:
   m_ObjectHideFlags: 0
@@ -458,6 +489,7 @@ GameObject:
   - component: {fileID: 8874596003242857823}
   - component: {fileID: 6426327490921345326}
   - component: {fileID: 3897046122524533757}
+  - component: {fileID: 2993542724222834847}
   m_Layer: 7
   m_Name: EnemyAttackTop
   m_TagString: Untagged
@@ -539,3 +571,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyTakeDamage
   DS: {fileID: 112764222622134458}
+  DealDamage: 0
+--- !u!50 &2993542724222834847
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8630737417538517077}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDamping: 0
+  m_AngularDamping: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

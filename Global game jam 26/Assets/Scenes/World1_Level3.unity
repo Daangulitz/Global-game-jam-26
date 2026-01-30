@@ -3807,6 +3807,10 @@ PrefabInstance:
       propertyPath: moveAction
       value: 
       objectReference: {fileID: 792709197}
+    - target: {fileID: 7453335834564323022, guid: 41483131c8abf7c4685b97894c8ed5e2, type: 3}
+      propertyPath: attackAction
+      value: 
+      objectReference: {fileID: 238934422}
     - target: {fileID: 7882400681379028956, guid: 41483131c8abf7c4685b97894c8ed5e2, type: 3}
       propertyPath: m_Name
       value: Player

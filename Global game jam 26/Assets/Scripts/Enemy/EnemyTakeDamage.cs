@@ -5,9 +5,11 @@ public class EnemyTakeDamage : MonoBehaviour
 {
     private PlayerController Player;
     [SerializeField] private GameObject DS;
+    public bool DealDamage;
     
     private void Start()
     {
+        DealDamage = false;
         Player = FindObjectOfType<PlayerController>();
     }
     
@@ -15,11 +17,11 @@ public class EnemyTakeDamage : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player")) 
         {
+            DealDamage = true;
             Die();
         }
     }
-
-
+    
     public void Die()
     {
         Destroy(DS);
