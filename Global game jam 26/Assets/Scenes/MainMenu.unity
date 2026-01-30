@@ -918,7 +918,7 @@ MonoBehaviour:
   currentLevelInWorld: 1
   levelsBeforeShop: 2
   maxWorlds: 2
-  tutorialSceneName: World1_Level1
+  tutorialSceneName: World3_Level1
   shopSceneName: Shop
   mainMenuSceneName: MainMenu
   fadeCanvasGroup: {fileID: 0}

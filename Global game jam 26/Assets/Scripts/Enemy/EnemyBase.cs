@@ -48,12 +48,18 @@ public class EnemyBase : MonoBehaviour
             // Follow player: Update the destination and resume moving
             ai.destination = player.position;
             ai.isStopped = false;
-            anim.SetBool("SeeingPlayer", true);
+            if (anim != null)
+            {
+                anim.SetBool("SeeingPlayer", true);
+            }
         }
         else
         {
             ai.isStopped = true;
-            anim.SetBool("SeeingPlayer", false);
+            if (anim != null)
+            {
+                anim.SetBool("SeeingPlayer", false);
+            } 
         }
 
         if (!MaxSpeedIsSet && gm.masks.Any(m => m.id == 8))
