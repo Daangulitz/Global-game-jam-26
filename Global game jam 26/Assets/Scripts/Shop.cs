@@ -187,6 +187,6 @@ public class Shop : MonoBehaviour
 
     private void NextScene()
     {
-        gsm.ExitShop();
+        gsm.LoadNextLevel();
     }
 }

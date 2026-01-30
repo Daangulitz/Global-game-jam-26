@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class Stairs : MonoBehaviour
 {
-    [SerializeField] private Transform targetPostion;
     private GameObject player;
     private GameSceneManager gsm;
     
@@ -18,8 +17,9 @@ public class Stairs : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            player.transform.position = targetPostion.position;
+            player.transform.position = new Vector2(0,0);
             gsm.MoveToNextLocation();
+            Debug.Log(player.transform.position);
         }
     }
 }

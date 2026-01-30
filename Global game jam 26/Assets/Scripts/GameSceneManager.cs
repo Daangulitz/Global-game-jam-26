@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class GameSceneManager : MonoBehaviour
 {
@@ -7,7 +8,7 @@ public class GameSceneManager : MonoBehaviour
 
     [Header("Progression Tracking")]
     public int currentWorld = 1;
-    public int currentLevelInWorld = 0; // Started at 0 to handle first shop properly
+    public int currentLevelInWorld = 0; 
     public int levelsBeforeShop = 3;
     public int maxWorlds = 3;
 
@@ -15,6 +16,10 @@ public class GameSceneManager : MonoBehaviour
     public string tutorialSceneName = "Tutorial";
     public string shopSceneName = "ShopScene";
     public string mainMenuSceneName = "MainMenu";
+
+    [Header("Fade Settings (Code Controlled)")]
+    [SerializeField] private CanvasGroup fadeCanvasGroup; 
+    [SerializeField] private float fadeSpeed = 2f;
 
     private void Awake()
     {
@@ -26,43 +31,80 @@ public class GameSceneManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+        
+        if(fadeCanvasGroup != null) fadeCanvasGroup.alpha = 0;
     }
 
-    // Call this to start the game from a menu button
+    // --- START GAME LOGIC ---
+    // Call this from your Main Menu "Play" button
     public void StartGame()
     {
-        // Check if tutorial was ever finished
+        // Check if tutorial has been completed before
         if (PlayerPrefs.GetInt("TutorialDone", 0) == 0)
         {
-            SceneManager.LoadScene("Tutorial"); 
+            SceneManager.LoadScene(tutorialSceneName);
         }
         else
         {
-            // If tutorial is done, go straight to the first Shop
+            // If tutorial is done, start the game loop
             currentWorld = 1;
             currentLevelInWorld = 0;
-            LoadShop();
+            MoveToNextLocation();
         }
     }
 
-    // Call this specifically at the end of the Tutorial level
+    // Call this specifically from the end of the Tutorial level
     public void FinishTutorial()
     {
         PlayerPrefs.SetInt("TutorialDone", 1);
         PlayerPrefs.Save();
         
-        // After tutorial, always go to Shop first
+        // After tutorial, reset counts and move to the first game location
         currentWorld = 1;
         currentLevelInWorld = 0;
-        LoadShop();
+        MoveToNextLocation();
+    }
+
+    // --- ELEVATOR SEQUENCE ---
+    public void StartElevatorSequence(float animationDuration)
+    {
+        StartCoroutine(ElevatorToFadeSequence(animationDuration));
+    }
+
+    private IEnumerator ElevatorToFadeSequence(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+
+        while (fadeCanvasGroup.alpha < 1)
+        {
+            fadeCanvasGroup.alpha += Time.deltaTime * fadeSpeed;
+            yield return null;
+        }
+
+        // Check if we are exiting the tutorial
+        if (SceneManager.GetActiveScene().name == tutorialSceneName)
+        {
+            FinishTutorial();
+        }
+        else
+        {
+            MoveToNextLocation();
+        }
+
+        yield return new WaitForSeconds(0.3f);
+
+        while (fadeCanvasGroup.alpha > 0)
+        {
+            fadeCanvasGroup.alpha -= Time.deltaTime * fadeSpeed;
+            yield return null;
+        }
     }
 
     public void MoveToNextLocation()
     {
-        // If we are currently in a level, check if we hit the shop interval
         if (currentLevelInWorld > 0 && currentLevelInWorld % levelsBeforeShop == 0)
         {
-            LoadShop();
+            SceneManager.LoadScene(shopSceneName);
         }
         else
         {
@@ -70,12 +112,10 @@ public class GameSceneManager : MonoBehaviour
         }
     }
 
-    private void LoadNextLevel()
+    public void LoadNextLevel()
     {
         currentLevelInWorld++;
-        
-        // Your logic for 2 levels per world
-        if (currentLevelInWorld > 3) 
+        if (currentLevelInWorld > 2) 
         {
             currentWorld++;
             currentLevelInWorld = 1;
@@ -87,24 +127,13 @@ public class GameSceneManager : MonoBehaviour
         }
         else
         {
-            string nextLevelName = "World" + currentWorld + "_Level" + currentLevelInWorld;
-            SceneManager.LoadScene(nextLevelName);
+            SceneManager.LoadScene("World" + currentWorld + "_Level" + currentLevelInWorld);
         }
     }
 
-    private void LoadShop()
+    // For testing: Call this to force the tutorial to play again
+    public void ResetTutorialSave()
     {
-        SceneManager.LoadScene(shopSceneName);
-    }
-
-    public void ExitShop()
-    {
-        LoadNextLevel();
-    }
-
-    // Optional: Call this if you want to force the tutorial to play again (for testing)
-    public void ResetTutorialStatus()
-    {
-        PlayerPrefs.SetInt("TutorialDone", 0);
+        PlayerPrefs.DeleteKey("TutorialDone");
     }
 }
