@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
     {
         steerInput = moveAction.action.ReadValue<Vector2>().x;
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayer);
-        
+        _animator.SetFloat("yVelocity", rb.linearVelocityY);
         // Reset jumps and handle mask logic when grounded
         if (isGrounded && rb.linearVelocity.y <= 0.1f)
         {
