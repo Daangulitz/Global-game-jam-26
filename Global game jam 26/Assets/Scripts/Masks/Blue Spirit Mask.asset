@@ -17,4 +17,5 @@ MonoBehaviour:
   description: Increase Stealth and Jump height, Decreases movement speed
   sprite: {fileID: 21300000, guid: f278fd19ffcb24e45a83238969880bf7, type: 3}
   material: {fileID: 2100000, guid: 87e8be148f059194184c8b22cd319ddd, type: 2}
+  hotseatMaterial: {fileID: 2100000, guid: 80caaebc006712945ae57076c08f67e6, type: 2}
   id: 1

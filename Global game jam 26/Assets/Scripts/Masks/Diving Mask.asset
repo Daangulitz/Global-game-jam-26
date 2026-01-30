@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 121c9c2be184adc4b8db6c2b01d5e500, type: 3}
   m_Name: Diving Mask
   m_EditorClassIdentifier: Assembly-CSharp::Mask
-  rarity: 0
-  maskName: 
-  description: 
-  sprite: {fileID: 0}
+  rarity: 1
+  maskName: Diving Mask
+  description: Reroll the Mask Shop once
+  sprite: {fileID: 21300000, guid: cf0c07c81d684484086552bc67c4d813, type: 3}
   material: {fileID: 0}
-  hotseatMaterial: {fileID: 0}
+  hotseatMaterial: {fileID: 2100000, guid: 27a0ecfa488257747b9ed565175b3f74, type: 2}
   id: 0
