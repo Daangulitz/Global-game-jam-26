@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Kaas/World2_Level3.unity
     guid: 539444e3ae517cf46804ae7bac9f9dc5
   - enabled: 1
-    path: Assets/Scenes/Levels/Space/World3_Level 1.unity
+    path: Assets/Scenes/Levels/Space/World3_Level1.unity
     guid: 8f7160a8e6644a542b53e9c159d3873f
   - enabled: 1
     path: Assets/Scenes/Levels/Space/World3_Level2.unity

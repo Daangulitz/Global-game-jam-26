@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 91c869fadabe06c429c0b9ac33b1b43d
+guid: eaa29594054c19145a6ceef7bbbc4255
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 340
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: nacho run_0
+      name: john punch_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 6008
-        width: 2000
-        height: 1992
+        y: 6408
+        width: 1600
+        height: 1592
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,20 +112,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e29692ecc7ad9d4d8133e6c743aedc9
-      internalID: 1292924519
+      spriteID: 3331b0c3d6b289a49bc1247642adeaca
+      internalID: -859524181
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: nacho run_1
+      name: john punch_1
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 6008
-        width: 2000
-        height: 1992
+        x: 1600
+        y: 6408
+        width: 1600
+        height: 1592
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,20 +134,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a44737c0eb7a6048a9813447553d771
-      internalID: -1945326538
+      spriteID: 37a30f59058d337459531f0b38df742b
+      internalID: 93979253
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: nacho run_2
+      name: john punch_2
       rect:
         serializedVersion: 2
-        x: 4000
-        y: 6008
-        width: 2000
-        height: 1992
+        x: 3200
+        y: 6408
+        width: 1600
+        height: 1592
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,20 +156,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2664645d7ee6407488f5e88a6cc7fbe2
-      internalID: -1699545093
+      spriteID: 7dd698be40d2c784ab67d9eaa0eec821
+      internalID: 423626831
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: nacho run_3
+      name: john punch_3
       rect:
         serializedVersion: 2
-        x: 6000
-        y: 6008
-        width: 2000
-        height: 1992
+        x: 4800
+        y: 6408
+        width: 1600
+        height: 1592
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,108 +178,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a27222afa1d9dd64cb45e15d821d256a
-      internalID: -179775684
+      spriteID: d3065d47fd8a235499c1979a2964d45c
+      internalID: -525662407
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: nacho run_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 4006
-        width: 2000
-        height: 1992
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6e3408e77b6f1c54bb4590e8f5a5b6ad
-      internalID: -804132807
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: nacho run_5
-      rect:
-        serializedVersion: 2
-        x: 2000
-        y: 4006
-        width: 2000
-        height: 1992
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 185329488e37a07488322ceb5d51c528
-      internalID: -1719369280
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: nacho run_6
-      rect:
-        serializedVersion: 2
-        x: 4000
-        y: 4006
-        width: 2000
-        height: 1992
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5f2c981715a2fbf4cafabd6ea75f02e9
-      internalID: 208451686
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: nacho run_7
-      rect:
-        serializedVersion: 2
-        x: 6000
-        y: 4006
-        width: 2000
-        height: 1992
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a470c6da5c8f40247befd92bf0d94483
-      internalID: 937506163
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: nacho run_8
+      name: john punch_4
       rect:
         serializedVersion: 2
         x: 0
-        y: 2004
-        width: 2000
-        height: 1992
+        y: 4806
+        width: 1600
+        height: 1592
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -288,20 +200,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 498e17b0d738a51408a4f6f4df5baba8
-      internalID: -451027940
+      spriteID: c3fd8d4f869fa8c49b4ce610866e5fcc
+      internalID: 727283233
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: nacho run_9
+      name: john punch_5
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 2004
-        width: 2000
-        height: 1992
+        x: 1600
+        y: 4806
+        width: 1600
+        height: 1592
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -310,20 +222,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9b9f2ad13216b346a8525899431b836
-      internalID: -1684972999
+      spriteID: 9ed164849bd56d54abb316faff318574
+      internalID: 1395021937
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: nacho run_10
+      name: john punch_6
       rect:
         serializedVersion: 2
-        x: 4000
-        y: 2004
-        width: 2000
-        height: 1992
+        x: 3200
+        y: 4806
+        width: 1600
+        height: 1592
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -332,20 +244,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47be2eafe6d72274a8fcf57b06872ff1
-      internalID: -254412664
+      spriteID: 9546dc9477fecb44fa6dfe4f1c34a815
+      internalID: -1372694432
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: nacho run_11
+      name: john punch_7
       rect:
         serializedVersion: 2
-        x: 6000
-        y: 2004
-        width: 2000
-        height: 1992
+        x: 4800
+        y: 4806
+        width: 1600
+        height: 1592
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -354,20 +266,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 815568916fe061349bd0bf36f0a30930
-      internalID: -190945012
+      spriteID: 239f2baca9b0cdb479811ec8c7e6250f
+      internalID: -1502600857
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: nacho run_12
+      name: john punch_8
       rect:
         serializedVersion: 2
         x: 0
-        y: 2
-        width: 2000
-        height: 1992
+        y: 3204
+        width: 1600
+        height: 1592
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -376,20 +288,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a67844b263c0ef4b9bb8359095b409c
-      internalID: -2028338136
+      spriteID: f99aded5fa442f44c96d2ad7a2dff5ae
+      internalID: 309158010
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: nacho run_13
+      name: john punch_9
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 2
-        width: 2000
-        height: 1992
+        x: 1600
+        y: 3204
+        width: 1600
+        height: 1592
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -398,20 +310,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ae556f539f8fee4ebea1d8775d06c67
-      internalID: -1359967771
+      spriteID: 855969d87f7d1f04e9ed80c40ddfd0e1
+      internalID: 1944601833
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: nacho run_14
+      name: john punch_10
       rect:
         serializedVersion: 2
-        x: 4000
-        y: 2
-        width: 2000
-        height: 1992
+        x: 3200
+        y: 3204
+        width: 1600
+        height: 1592
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -420,20 +332,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 61174cf4cb6361e4e8a597c7df7549e5
-      internalID: -1573630247
+      spriteID: 54861d4aeb9e10c4f951cc964f05953e
+      internalID: 389954888
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: nacho run_15
+      name: john punch_11
       rect:
         serializedVersion: 2
-        x: 6000
-        y: 2
-        width: 2000
-        height: 1992
+        x: 4800
+        y: 3204
+        width: 1600
+        height: 1592
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -442,8 +354,118 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c462e27fac2f7b4bbe3f4f2bcd50797
-      internalID: 531070878
+      spriteID: 10e0ed63c9589c04c8918e4b2d86ae0e
+      internalID: 412300751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john punch_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1602
+        width: 1600
+        height: 1592
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcbdf5756b58927439e6b2cdc6cc9a87
+      internalID: -851154004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john punch_13
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 1602
+        width: 1600
+        height: 1592
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b33b1e7e50f74364394e2213a06f8182
+      internalID: 1758553511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john punch_14
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 1602
+        width: 1600
+        height: 1592
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bf5d8d65963fda44907bb49213a4943
+      internalID: -1947615150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john punch_15
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 1602
+        width: 1600
+        height: 1592
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5df26b62a4f5fb4ba99c4d40c0ddb8f
+      internalID: 1958765258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john punch_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1600
+        height: 1592
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f0907fab6854004f97992c9c55afeb9
+      internalID: 183615121
       vertices: []
       indices: 
       edges: []
@@ -452,7 +474,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 4f360e618cdc60b46bd5418fe7946ad8
+    spriteID: 87a7cc97529d76b448699a8d3cfa2d87
     internalID: 0
     vertices: []
     indices: 
@@ -462,24 +484,25 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":4.0},"gridSpriteSize":{"x":2000.0,"y":1992.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":10.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":5.0},"gridSpriteSize":{"x":1600.0,"y":1592.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":10.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      nacho run_0: 1292924519
-      nacho run_1: -1945326538
-      nacho run_10: -254412664
-      nacho run_11: -190945012
-      nacho run_12: -2028338136
-      nacho run_13: -1359967771
-      nacho run_14: -1573630247
-      nacho run_15: 531070878
-      nacho run_2: -1699545093
-      nacho run_3: -179775684
-      nacho run_4: -804132807
-      nacho run_5: -1719369280
-      nacho run_6: 208451686
-      nacho run_7: 937506163
-      nacho run_8: -451027940
-      nacho run_9: -1684972999
+      john punch_0: -859524181
+      john punch_1: 93979253
+      john punch_10: 389954888
+      john punch_11: 412300751
+      john punch_12: -851154004
+      john punch_13: 1758553511
+      john punch_14: -1947615150
+      john punch_15: 1958765258
+      john punch_16: 183615121
+      john punch_2: 423626831
+      john punch_3: -525662407
+      john punch_4: 727283233
+      john punch_5: 1395021937
+      john punch_6: -1372694432
+      john punch_7: -1502600857
+      john punch_8: 309158010
+      john punch_9: 1944601833
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

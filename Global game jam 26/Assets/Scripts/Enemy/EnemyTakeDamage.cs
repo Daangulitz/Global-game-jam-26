@@ -9,18 +9,24 @@ public class EnemyTakeDamage : MonoBehaviour
     public bool DealDamage;
     [SerializeField]private Animator anim;
     private float TimeUntilDeath = 1f;
+    private Animator animator;
     
     private void Start()
     {
         DealDamage = false;
         Player = FindObjectOfType<PlayerController>();
+        animator = FindObjectOfType<Animator>();
     }
     
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player")) 
         {
-            anim.SetTrigger("IsDead");
+            if (animator != null)
+            {
+                anim.SetTrigger("IsDead");
+            }
+
             DealDamage = true;
             StartCoroutine(Die());
         }
