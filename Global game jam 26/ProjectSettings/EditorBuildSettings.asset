@@ -35,6 +35,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Kaas/World2_Level2.unity
     guid: 8a7e5a97bf0266b4d992e85a5007eacb
+  - enabled: 1
+    path: Assets/Scenes/Levels/Kaas/World2_Level3.unity
+    guid: 539444e3ae517cf46804ae7bac9f9dc5
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 9b37e8727a9c36a40bf5a80dbd99cfe6
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
